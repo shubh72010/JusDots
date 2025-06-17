@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>JusDots – DOTX-1</title>
+  <title>JusDots – Home</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Google Fonts for a mono + sans look -->
   <link href="https://fonts.googleapis.com/css?family=Space+Mono:400,700|Montserrat:700&display=swap" rel="stylesheet">
@@ -28,7 +28,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 36px 6vw 24px 6vw;
+      padding: 36px 7vw 24px 7vw;
       background: #fff;
       box-shadow: var(--shadow);
       border-bottom: 2px solid var(--border);
@@ -59,18 +59,18 @@
       flex-wrap: wrap;
       align-items: center;
       justify-content: center;
-      padding: 64px 6vw 0 6vw;
-      gap: 64px;
+      padding: 80px 7vw 0 7vw;
+      gap: 60px;
     }
     .hero-text {
       flex: 1 1 350px;
       min-width: 300px;
     }
     .hero-title {
-      font-size: 3.6rem;
+      font-size: 3.8rem;
       font-family: 'Montserrat', sans-serif;
       margin-top: 0;
-      margin-bottom: 12px;
+      margin-bottom: 13px;
       letter-spacing: 0.02em;
       background: linear-gradient(90deg, var(--accent), var(--accent2));
       -webkit-background-clip: text;
@@ -78,7 +78,7 @@
     }
     .hero-desc {
       font-size: 1.45rem;
-      margin-bottom: 36px;
+      margin-bottom: 38px;
       line-height: 1.5;
       max-width: 470px;
     }
@@ -167,38 +167,35 @@
       border-radius: 50%;
     }
     main {
-      margin: 40px auto 0 auto;
-      max-width: 880px;
-      padding: 0 6vw;
-    }
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 36px;
-      margin-top: 44px;
-    }
-    .feature {
-      background: #fff;
-      border: 2px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 30px 24px 36px 24px;
+      margin: 44px auto 0 auto;
+      max-width: 840px;
+      padding: 0 7vw;
       text-align: center;
     }
-    .feature h3 {
-      font-family: 'Montserrat', sans-serif;
-      margin-top: 0;
-      color: var(--accent2);
-      font-size: 1.4rem;
-      margin-bottom: 7px;
+    .quick-links {
+      margin: 40px 0 0 0;
     }
-    .feature p {
-      font-size: 1.07rem;
-      margin-top: 0;
-      color: #222;
+    .quick-links a {
+      display: inline-block;
+      margin: 0 14px;
+      padding: 12px 30px;
+      border-radius: 20px;
+      background: var(--accent2);
+      color: #fff;
+      font-family: 'Space Mono', monospace;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 1.15rem;
+      box-shadow: var(--shadow);
+      border: 2px solid var(--border);
+      transition: background 0.2s;
+    }
+    .quick-links a:hover {
+      background: var(--accent);
+      color: #111;
     }
     footer {
-      margin-top: 64px;
+      margin-top: 56px;
       background: #fff;
       border-top: 2px solid var(--border);
       text-align: center;
@@ -213,7 +210,13 @@
         padding-top: 36px;
       }
       .hero-title {
-        font-size: 2.2rem;
+        font-size: 2.3rem;
+      }
+      .device {
+        width: 90vw;
+        min-width: 200px;
+        max-width: 340px;
+        height: auto;
       }
     }
   </style>
@@ -222,25 +225,25 @@
   <header>
     <div class="logo">JusDots</div>
     <nav>
-      <a href="#dotx1">DOTX-1</a>
-      <a href="#features">Features</a>
+      <a href="DOTX1.html">DOTX-1</a>
       <a href="#contact">Contact</a>
+      <a href="https://github.com/shubh72010/JusDots" target="_blank">GitHub</a>
     </nav>
   </header>
-  <section class="hero" id="dotx1">
+  <section class="hero">
     <div class="hero-text">
-      <h1 class="hero-title">Meet DOTX-1</h1>
+      <h1 class="hero-title">Welcome to JusDots</h1>
       <div class="hero-desc">
-        The next-gen creative tool from JusDots.  
-        Bold, playful, and engineered for imagination.<br>
-        Inspired by the spirit of Teenage Engineering, DOTX-1 brings tactile joy and sonic possibilities to your desk.
+        Where playful engineering meets creativity.<br>
+        Explore our unique devices and tools—  
+        <strong>designed for those who love to build, play, and create.</strong>
       </div>
-      <a href="#features" class="btn">See Features</a>
+      <a href="DOTX1.html" class="btn">Discover DOTX-1</a>
     </div>
     <div class="hero-img">
       <!-- Stylized "device" illustration -->
       <div class="device">
-        <div class="screen">DOTX-1</div>
+        <div class="screen">JusDots</div>
         <div class="knobs">
           <div class="knob"></div>
           <div class="knob"></div>
@@ -256,34 +259,14 @@
     </div>
   </section>
   <main>
-    <h2 id="features" style="font-family: 'Montserrat', sans-serif; font-size:2.1rem; color:var(--primary); margin-bottom:12px;">
-      Why DOTX-1?
-    </h2>
-    <div class="features">
-      <div class="feature">
-        <h3>Ultra-Portable</h3>
-        <p>Lightweight, pocket-friendly, and always ready for ideas on the go.</p>
-      </div>
-      <div class="feature">
-        <h3>Playful Controls</h3>
-        <p>Knobs, buttons, and tactile feedback make creation fun and intuitive.</p>
-      </div>
-      <div class="feature">
-        <h3>Creative Engine</h3>
-        <p>Powerful sound and effect engine, perfect for music, design, or code experiments.</p>
-      </div>
-      <div class="feature">
-        <h3>USB-C & Bluetooth</h3>
-        <p>Modern connectivity for seamless integration with your workflow.</p>
-      </div>
-      <div class="feature">
-        <h3>Open Platform</h3>
-        <p>Hackable and customizable—make DOTX-1 truly yours!</p>
-      </div>
+    <div class="quick-links">
+      <a href="DOTX1.html">Go to DOTX-1 Product Page</a>
+      <a href="https://github.com/shubh72010/JusDots" target="_blank">View on GitHub</a>
     </div>
-    <section id="contact" style="margin-top:54px; text-align:center;">
+    <section id="contact" style="margin-top:54px;">
       <h2 style="font-family:'Montserrat',sans-serif;font-size:1.7rem;">Contact JusDots</h2>
-      <p>Want to learn more or get in touch?<br>
+      <p>
+        Want to learn more or get in touch?<br>
         <a href="mailto:hello@jusdots.com" style="color:var(--accent2);font-weight:bold;text-decoration:none;">hello@jusdots.com</a>
       </p>
     </section>
