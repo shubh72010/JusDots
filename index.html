@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,132 +10,133 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-    }body {
-  font-family: 'Space Grotesk', sans-serif;
-  background: #0f0f0f;
-  color: white;
-  overflow-x: hidden;
-}
+    }
 
-header {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  padding: 1rem 2rem;
-  background: rgba(15, 15, 15, 0.8);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 10;
-}
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background: #0f0f0f;
+      color: white;
+      overflow-x: hidden;
+    }
 
-header h1 {
-  font-weight: 700;
-  font-size: 1.5rem;
-  letter-spacing: 2px;
-}
+    header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      padding: 1rem 2rem;
+      background: rgba(15, 15, 15, 0.8);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 10;
+    }
 
-header nav a {
-  color: #aaa;
-  margin-left: 1.5rem;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
+    header h1 {
+      font-weight: 700;
+      font-size: 1.5rem;
+      letter-spacing: 2px;
+    }
 
-header nav a:hover {
-  color: white;
-}
+    header nav a {
+      color: #aaa;
+      margin-left: 1.5rem;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
 
-.hero {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 5rem 2rem 2rem;
-}
+    header nav a:hover {
+      color: white;
+    }
 
-.hero h2 {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  letter-spacing: 1px;
-}
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 5rem 2rem 2rem;
+    }
 
-.hero p {
-  max-width: 600px;
-  font-size: 1rem;
-  color: #aaa;
-  margin-bottom: 2rem;
-}
+    .hero h2 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      letter-spacing: 1px;
+    }
 
-.hero img {
-  width: 70%;
-  max-width: 400px;
-  margin-top: 1rem;
-}
+    .hero p {
+      max-width: 600px;
+      font-size: 1rem;
+      color: #aaa;
+      margin-bottom: 2rem;
+    }
 
-.section {
-  padding: 5rem 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
+    .hero img {
+      width: 70%;
+      max-width: 400px;
+      margin-top: 1rem;
+    }
 
-.section h3 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
+    .section {
+      padding: 5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
 
-.section p {
-  max-width: 600px;
-  color: #aaa;
-}
+    .section h3 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
 
-footer {
-  padding: 2rem;
-  text-align: center;
-  font-size: 0.9rem;
-  color: #555;
-}
+    .section p {
+      max-width: 600px;
+      color: #aaa;
+    }
 
-@media (min-width: 768px) {
-  .hero {
-    flex-direction: row;
-    text-align: left;
-    justify-content: space-around;
-    align-items: center;
-    padding-top: 6rem;
-  }
+    footer {
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #555;
+    }
 
-  .hero h2 {
-    font-size: 4rem;
-  }
+    @media (min-width: 768px) {
+      .hero {
+        flex-direction: row;
+        text-align: left;
+        justify-content: space-around;
+        align-items: center;
+        padding-top: 6rem;
+      }
 
-  .hero p {
-    font-size: 1.25rem;
-  }
+      .hero h2 {
+        font-size: 4rem;
+      }
 
-  .hero img {
-    max-width: 500px;
-    width: 40%;
-  }
+      .hero p {
+        font-size: 1.25rem;
+      }
 
-  .section {
-    flex-direction: row;
-    justify-content: space-around;
-    text-align: left;
-  }
+      .hero img {
+        max-width: 500px;
+        width: 40%;
+      }
 
-  .section > div {
-    flex: 1;
-    padding: 2rem;
-  }
-}
+      .section {
+        flex-direction: row;
+        justify-content: space-around;
+        text-align: left;
+      }
 
+      .section > div {
+        flex: 1;
+        padding: 2rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -145,39 +147,43 @@ footer {
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </nav>
-  </header>  <main>
+  </header>
+
+  <main>
     <section class="hero">
       <div>
         <h2>Hybrid. Raw. London-Born.</h2>
         <p>The DOTX-1 is the first of its kind: plug in with AUX or float free with Bluetooth. Engineered with chaos, designed for clarity.</p>
       </div>
       <img src="/assets/dotx1-render.png" alt="DOTX-1 Earbuds Render">
-    </section><section id="features" class="section">
-  <div>
-    <h3>🔗 AUX + BT Hybrid</h3>
-    <p>Flip between legacy and wireless on the fly with a built-in 3.5mm port on the stem.</p>
-  </div>
-  <div>
-    <h3>💡 Transparent Minimalism</h3>
-    <p>Custom case with matte accents. Pure, stripped-down aesthetics for focused functionality.</p>
-  </div>
-  <div>
-    <h3>🧠 Intelligent Sound</h3>
-    <p>Balanced tuning with deep lows and crisp highs. Perfect for chaoscore playlists and midnight chill.</p>
-  </div>
-</section>
+    </section>
 
-<section id="about" class="section">
-  <div>
-    <h3>Designed in London</h3>
-    <p>DOTX-1 was born from a bedroom in India but forged in the mindset of global minimalism. This isn’t just another earbud. It’s a design statement.</p>
-  </div>
-</section>
+    <section id="features" class="section">
+      <div>
+        <h3>🔗 AUX + BT Hybrid</h3>
+        <p>Flip between legacy and wireless on the fly with a built-in 3.5mm port on the stem.</p>
+      </div>
+      <div>
+        <h3>💡 Transparent Minimalism</h3>
+        <p>Custom case with matte accents. Pure, stripped-down aesthetics for focused functionality.</p>
+      </div>
+      <div>
+        <h3>🧠 Intelligent Sound</h3>
+        <p>Balanced tuning with deep lows and crisp highs. Perfect for chaoscore playlists and midnight chill.</p>
+      </div>
+    </section>
 
-<footer>
-  &copy; 2025 Dotx Audio Ltd. — Designed in London. Engineered for chaos.
-</footer>
+    <section id="about" class="section">
+      <div>
+        <h3>Designed in London</h3>
+        <p>DOTX-1 was born from a bedroom in India but forged in the mindset of global minimalism. This isn’t just another earbud. It’s a design statement.</p>
+      </div>
+    </section>
 
+    <footer>
+      &copy; 2025 Dotx Audio Ltd. — Designed in London. Engineered for chaos.
+    </footer>
   </main>
 </body>
 </html>
+
