@@ -32,6 +32,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+html, body {
+  scroll-behavior: smooth;
+}
 body {
   background: var(--bg);
   color: var(--text);
@@ -44,21 +47,26 @@ body {
   text-align: center;
   transition: background 0.3s, color 0.3s;
   padding: 20px;
+  overflow-x: hidden;
 }
 header {
-  position: absolute;
+  position: fixed;
   top: 20px;
   left: 20px;
   font-weight: 900;
   font-size: 1.2rem;
   letter-spacing: 2px;
+  z-index: 10;
+  animation: fadeIn 1s ease-out;
 }
 nav {
-  position: absolute;
+  position: fixed;
   top: 20px;
   right: 60px;
   display: flex;
   align-items: center;
+  z-index: 10;
+  animation: fadeIn 1s ease-out 0.3s backwards;
 }
 nav a {
   text-decoration: none;
@@ -87,8 +95,12 @@ nav a:hover {
 .theme-toggle:hover {
   background: var(--accent-light);
 }
+.hero {
+  animation: fadeInUp 1s ease-out 0.6s backwards;
+  margin-top: 100px;
+}
 .hero img {
-  width: 200px;
+  width: 220px;
   margin-bottom: 40px;
   animation: float 4s ease-in-out infinite;
 }
@@ -96,6 +108,14 @@ nav a:hover {
   0% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
   100% { transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 h1 {
   font-size: 2.8rem;
@@ -115,13 +135,15 @@ p {
   font-weight: 600;
   text-decoration: none;
   transition: all 0.3s ease;
+  border-radius: 5px;
 }
 .btn:hover {
-  transform: translateY(-2px);
+  transform: scale(1.05);
   background: var(--accent-light);
 }
 .waitlist {
   margin-top: 40px;
+  animation: fadeInUp 1s ease-out 1s backwards;
 }
 input[type="email"] {
   padding: 10px;
@@ -139,12 +161,18 @@ button[type="submit"] {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  transition: all 0.3s;
+}
+button[type="submit"]:hover {
+  transform: scale(1.05);
+  background: var(--accent-light);
 }
 footer {
   position: absolute;
   bottom: 20px;
   font-size: 0.75rem;
   color: #888;
+  animation: fadeIn 1s ease-out 1.4s backwards;
 }
 @media (max-width: 600px) {
   .hero img {
@@ -182,7 +210,6 @@ footer {
       html.setAttribute("data-theme", newTheme);
       localStorage.setItem("theme", newTheme);
     }
-    // Load theme from storage
     (function() {
       const saved = localStorage.getItem("theme");
       if (saved) document.documentElement.setAttribute("data-theme", saved);
