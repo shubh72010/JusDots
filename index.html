@@ -1,132 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DOTX-1 | Flake Audio</title>
-
-  <!-- NothingUI Styles -->
-  <link rel="stylesheet" href="https://nothing-ui-library.netlify.app/css/nothing-ui.min.css">
-  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DOTX‑1 Modular Synth UI</title>
   <style>
-    body {
+    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+    * {
       margin: 0;
-      font-family: 'Space Grotesk', sans-serif;
-      background: #0f0f0f;
-      color: #fff;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Share Tech Mono', monospace;
+      background: #0a0a0a;
+      color: #eee;
       overflow-x: hidden;
     }
-    /* Mobile-first Teenage-inspired design */
-    .hero-mobile {
-      padding: 4rem 1.5rem;
+    .synthboard {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      padding: 4rem 2rem;
+    }
+    .module {
+      background: #111;
+      border: 2px solid #2b2b2b;
+      border-radius: 16px;
+      padding: 2rem;
       text-align: center;
-    }
-    .hero-mobile h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-    .hero-mobile p {
-      font-size: 1rem;
-      color: #ccc;
-      max-width: 90%;
-      margin: 0 auto 2rem;
-    }
-    .floating-panel {
+      box-shadow: 0 0 20px rgba(255, 90, 0, 0.05);
       position: relative;
-      background: rgba(255,255,255,0.05);
-      border: 2px solid rgba(255,255,255,0.1);
-      border-radius: 12px;
-      padding: 1.5rem;
-      margin: 1rem;
-      perspective: 600px;
-      transform: translateY(0);
-      transition: transform 0.4s ease;
+      transition: transform 0.3s ease;
     }
-    .floating-panel:hover {
-      transform: translateY(-10px);
+    .module:hover {
+      transform: translateY(-5px);
     }
-    /* Desktop overrides for NothingUI structure */
-    @media(min-width: 768px) {
-      body {
-        --nothing-bg: #0f0f0f;
-      }
-      .hero-mobile {
-        display: none;
-      }
-      .desktop-hero {
-        margin: 6rem auto;
-        max-width: 1200px;
-        text-align: left;
-      }
-      .desktop-hero h1 {
-        font-size: 4rem;
-      }
-      .desktop-hero p {
-        font-size: 1.25rem;
-        color: #aaa;
-        max-width: 600px;
-      }
-      .features {
-        display: flex;
-        justify-content: space-between;
-        gap: 2rem;
-        margin: 4rem auto;
-        max-width: 1200px;
-      }
-      .feature-card {
-        background: var(--nothing-card-bg, #111);
-        border-radius: 8px;
-        padding: 2rem;
-        flex: 1;
-        text-align: center;
-      }
-      .feature-card h3 {
-        font-size: 1.75rem;
-        margin-bottom: 1rem;
-      }
-      .feature-card p {
-        font-size: 1rem;
-        color: #ddd;
-      }
+    .knob {
+      width: 100px;
+      height: 100px;
+      margin: 1rem auto;
+      border-radius: 50%;
+      background: radial-gradient(#333, #111);
+      border: 4px solid #f05a22;
+      position: relative;
+      cursor: grab;
+    }
+    .knob::after {
+      content: '';
+      position: absolute;
+      top: 15%;
+      left: 50%;
+      width: 4px;
+      height: 20px;
+      background: #f05a22;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+    .slider {
+      width: 100%;
+      margin: 1rem 0;
+    }
+    input[type="range"] {
+      width: 100%;
+      background: #222;
+      height: 6px;
+      border-radius: 6px;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #f05a22;
+      box-shadow: 0 0 8px #f05a22;
+    }
+    .led {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #222;
+      margin: 0 auto 1rem;
+      box-shadow: 0 0 2px #000;
+    }
+    .led.active {
+      background: #0f0;
+      box-shadow: 0 0 6px #0f0;
+    }
+    .button {
+      padding: 0.8rem 2rem;
+      border: 2px solid #f05a22;
+      background: #1a1a1a;
+      color: #f05a22;
+      text-transform: uppercase;
+      border-radius: 10px;
+      margin-top: 1rem;
+      transition: 0.2s;
+    }
+    .button:hover {
+      background: #f05a22;
+      color: #000;
     }
   </style>
 </head>
 <body>
+  <h1 style="text-align:center; font-size:2.5rem; padding-top:2rem;">DOTX‑1 Control Panel</h1>
+  <div class="synthboard">
+    <div class="module">
+      <div class="led" id="led1"></div>
+      <div class="knob" id="knob1"></div>
+      <label>Sound</label>
+      <input class="slider" type="range" min="0" max="100" value="50" />
+      <button class="button" onclick="activateLED('led1')">Activate</button>
+    </div>
+    <div class="module">
+      <div class="led" id="led2"></div>
+      <div class="knob" id="knob2"></div>
+      <label>Transparency</label>
+      <input class="slider" type="range" min="0" max="100" value="30" />
+      <button class="button" onclick="activateLED('led2')">Toggle Shell</button>
+    </div>
+    <div class="module">
+      <div class="led" id="led3"></div>
+      <div class="knob" id="knob3"></div>
+      <label>Power Mode</label>
+      <input class="slider" type="range" min="0" max="100" value="70" />
+      <button class="button" onclick="activateLED('led3')">Boost</button>
+    </div>
+  </div>
 
-  <!-- Mobile (Teenage Engineering style) -->
-  <section class="hero-mobile">
-    <h1>DOTX‑1</h1>
-    <p>Hybrid AUX+BT audio architecture. Engineered chaos in your ear.</p>
-    <div class="floating-panel">
-      🔗 AUX + BT Hybrid
-    </div>
-    <div class="floating-panel">
-      💡 Transparent Minimalism
-    </div>
-    <div class="floating-panel">
-      🧠 Intelligent Sound
-    </div>
-  </section>
+  <script>
+    const knobs = document.querySelectorAll('.knob');
+    knobs.forEach(knob => {
+      let angle = 0;
+      let dragging = false;
 
-  <!-- Desktop (Nothing UI structure) -->
-  <section class="desktop-hero">
-    <h1 class="h-1">DOTX‑1</h1>
-    <p class="font-md-2">Hybrid AUX+BT audio architecture. Engineered chaos in your ear.</p>
-  </section>
-  <section class="features">
-    <div class="feature-card">
-      <h3>AUX + BT Hybrid</h3>
-      <p>Switch instantly between wired and wireless without skipping a beat.</p>
-    </div>
-    <div class="feature-card">
-      <h3>Transparent Minimalism</h3>
-      <p>Stripped-down design, pure aesthetics, zero fluff.</p>
-    </div>
-    <div class="feature-card">
-      <h3>Balanced Sound</h3>
-      <p>Deep lows, crisp highs—tuned for chaoscore to midnight chill.</p>
-    </div>
-  </section>
+      knob.addEventListener('mousedown', () => dragging = true);
+      window.addEventListener('mouseup', () => dragging = false);
+      window.addEventListener('mousemove', (e) => {
+        if (!dragging) return;
+        angle += e.movementX;
+        knob.style.transform = `rotate(${angle}deg)`;
+      });
+    });
 
+    function activateLED(id) {
+      const led = document.getElementById(id);
+      led.classList.toggle('active');
+    }
+  </script>
 </body>
 </html>
