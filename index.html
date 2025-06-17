@@ -1,92 +1,295 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JusDots Audio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-  <meta name="description" content="DOTX-1 by JusDots — clean, high‑performance earbuds. Like TE UI vibes.">
+  <meta charset="UTF-8">
+  <title>JusDots – DOTX-1</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Fonts for a mono + sans look -->
+  <link href="https://fonts.googleapis.com/css?family=Space+Mono:400,700|Montserrat:700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-light: #f2f2f2;
-      --bg-dark: #181818;
-      --txt-light: #111;
-      --txt-dark: #fff;
-      --neu-light: #e6e6e6;
-      --neu-shadow: rgba(0,0,0,0.1);
+      --bg: #f9f9f9;
+      --primary: #111;
+      --accent: #ffdc00;
+      --accent2: #00d1ff;
+      --border: #222;
+      --radius: 18px;
+      --shadow: 0 6px 32px rgba(0,0,0,0.09);
     }
-    [data-theme="light"] {
-      --bg: var(--bg-light); --txt: var(--txt-light);
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--primary);
+      font-family: 'Space Mono', monospace;
+      min-height: 100vh;
     }
-    [data-theme="dark"] {
-      --bg: var(--bg-dark); --txt: var(--txt-dark);
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 36px 6vw 24px 6vw;
+      background: #fff;
+      box-shadow: var(--shadow);
+      border-bottom: 2px solid var(--border);
     }
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body {
-      background: var(--bg); color: var(--txt);
-      font-family: 'Inter', sans-serif; min-height:100vh;
-      display:flex; flex-direction:column; align-items:center;
-      justify-content:center; padding:20px;
+    .logo {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.4rem;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
-    .neu {
-      background: var(--neu-light);
-      border-radius: 12px;
-      box-shadow: 6px 6px 12px var(--neu-shadow), -6px -6px 12px #fff;
-      transition: box-shadow .3s;
+    nav a {
+      text-decoration: none;
+      color: var(--primary);
+      font-size: 1.1rem;
+      margin-left: 32px;
+      font-weight: 700;
+      border-bottom: 2px solid transparent;
+      transition: border 0.2s;
     }
-    [data-theme="dark"] .neu {
-      background: var(--bg); box-shadow: 4px 4px 8px rgba(0,0,0,0.8), -4px -4px 8px rgba(255,255,255,0.05);
+    nav a:hover {
+      border-color: var(--accent);
     }
-    .neu:hover { box-shadow: inset 2px 2px 4px var(--neu-shadow), inset -2px -2px 4px #fff; }
-    header { position:fixed; top:20px; left:20px; font-weight:900; font-size:1.2rem; }
-    nav { position:fixed; top:20px; right:60px; }
-    nav a { margin-left:30px; text-decoration:none; color:var(--txt); font-weight:600; opacity:.8; transition:.3s; }
-    nav a:hover { opacity:1; }
-    .theme { cursor:pointer; padding:5px 10px; border:1px solid var(--txt); background:none; margin-left:20px; }
-    .hero { text-align:center; animation:fadeInUp .8s both .5s; }
-    .hero img { width:200px; margin-bottom:20px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1); transition:transform .3s; }
-    .hero img:hover { transform:scale(1.02); }
-    h1 { font-size:2.8rem; margin:20px 0; }
-    p { color: #555; margin-bottom:30px; }
-    .btn { display:inline-block; padding:12px 26px; background:var(--txt); color:var(--bg); border-radius:6px; font-weight:600; transition:.3s; }
-    .btn:hover { transform:scale(1.05); }
-    .wait neu, .waitlist { margin-top:30px; animation:fadeInUp .8s both 1s; }
-    input[type=email]{padding:10px;border:1px solid #ccc;border-radius:4px;width:200px;}
-    button[type=submit]{padding:10px 16px;background:var(--txt);color:var(--bg); border:none;border-radius:4px;}
-    footer{position:fixed;bottom:20px;font-size:.75rem;color:#888;}
-    @keyframes fadeInUp {
-      from {opacity:0; transform:translateY(20px);}
-      to {opacity:1; transform:translateY(0);}
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      padding: 64px 6vw 0 6vw;
+      gap: 64px;
+    }
+    .hero-text {
+      flex: 1 1 350px;
+      min-width: 300px;
+    }
+    .hero-title {
+      font-size: 3.6rem;
+      font-family: 'Montserrat', sans-serif;
+      margin-top: 0;
+      margin-bottom: 12px;
+      letter-spacing: 0.02em;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-desc {
+      font-size: 1.45rem;
+      margin-bottom: 36px;
+      line-height: 1.5;
+      max-width: 470px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 18px 38px;
+      font-family: 'Space Mono', monospace;
+      font-size: 1.2rem;
+      background: var(--accent);
+      color: var(--primary);
+      font-weight: bold;
+      border: none;
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      transition: background 0.2s, transform 0.14s;
+      text-decoration: none;
+    }
+    .btn:hover {
+      background: var(--accent2);
+      transform: translateY(-2px) scale(1.03);
+      color: #000;
+    }
+    .hero-img {
+      flex: 1 1 300px;
+      min-width: 260px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .device {
+      width: 270px;
+      height: 340px;
+      background: #fff;
+      border: 3.5px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 22px 0 0 0;
+      position: relative;
+    }
+    .device .screen {
+      width: 78%;
+      height: 95px;
+      background: var(--accent2);
+      border-radius: 14px;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-family: 'Space Mono', monospace;
+      font-size: 1.45rem;
+      font-weight: bold;
+      letter-spacing: 0.01em;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+    .device .knobs {
+      display: flex;
+      justify-content: space-between;
+      width: 75%;
+      margin-bottom: 22px;
+    }
+    .knob {
+      width: 32px;
+      height: 32px;
+      background: var(--accent);
+      border: 2px solid var(--border);
+      border-radius: 50%;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+    .device .buttons {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      margin-top: 18px;
+    }
+    .button {
+      width: 22px;
+      height: 22px;
+      background: var(--accent2);
+      border: 1.5px solid var(--border);
+      border-radius: 50%;
+    }
+    main {
+      margin: 40px auto 0 auto;
+      max-width: 880px;
+      padding: 0 6vw;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 36px;
+      margin-top: 44px;
+    }
+    .feature {
+      background: #fff;
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 30px 24px 36px 24px;
+      text-align: center;
+    }
+    .feature h3 {
+      font-family: 'Montserrat', sans-serif;
+      margin-top: 0;
+      color: var(--accent2);
+      font-size: 1.4rem;
+      margin-bottom: 7px;
+    }
+    .feature p {
+      font-size: 1.07rem;
+      margin-top: 0;
+      color: #222;
+    }
+    footer {
+      margin-top: 64px;
+      background: #fff;
+      border-top: 2px solid var(--border);
+      text-align: center;
+      padding: 36px 0 18px 0;
+      font-size: 1rem;
+      color: #444;
+    }
+    @media (max-width: 700px) {
+      .hero {
+        flex-direction: column;
+        gap: 40px;
+        padding-top: 36px;
+      }
+      .hero-title {
+        font-size: 2.2rem;
+      }
     }
   </style>
 </head>
 <body>
-  <header>JUSDOTS</header>
-  <nav>
-    <a href="#">Home</a>
-    <a href="DOTX1.html">DOTX-1</a>
-    <a href="#">Support</a>
-    <button class="theme" onclick="toggle()">Toggle</button>
-  </nav>
-  <div class="hero neu">
-    <img src="earbuds1.png" alt="DOTX‑1 Earbuds">
-    <h1>DOTX‑1</h1>
-    <p>Sound. Clarity. Simplicity.</p>
-    <a href="DOTX1.html" class="btn">Explore →</a>
-    <div class="waitlist neu">
-      <form action="https://formspree.io/f/yourID" method="POST">
-        <input type="email" name="email" placeholder="Join waitlist">
-        <button type="submit">JOIN</button>
-      </form>
+  <header>
+    <div class="logo">JusDots</div>
+    <nav>
+      <a href="#dotx1">DOTX-1</a>
+      <a href="#features">Features</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+  <section class="hero" id="dotx1">
+    <div class="hero-text">
+      <h1 class="hero-title">Meet DOTX-1</h1>
+      <div class="hero-desc">
+        The next-gen creative tool from JusDots.  
+        Bold, playful, and engineered for imagination.<br>
+        Inspired by the spirit of Teenage Engineering, DOTX-1 brings tactile joy and sonic possibilities to your desk.
+      </div>
+      <a href="#features" class="btn">See Features</a>
     </div>
-  </div>
-  <footer>&copy; 2025 JusDots Audio</footer>
-  <script>
-    function toggle(){
-      const html = document.documentElement;
-      const t = html.getAttribute("data-theme") === "light" ? "dark": "light";
-      html.setAttribute("data-theme",t); localStorage.theme = t;
-    }
-    if(localStorage.theme) document.documentElement.setAttribute("data-theme",localStorage.theme);
-  </script>
+    <div class="hero-img">
+      <!-- Stylized "device" illustration -->
+      <div class="device">
+        <div class="screen">DOTX-1</div>
+        <div class="knobs">
+          <div class="knob"></div>
+          <div class="knob"></div>
+          <div class="knob"></div>
+        </div>
+        <div class="buttons">
+          <div class="button"></div>
+          <div class="button"></div>
+          <div class="button"></div>
+          <div class="button"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <main>
+    <h2 id="features" style="font-family: 'Montserrat', sans-serif; font-size:2.1rem; color:var(--primary); margin-bottom:12px;">
+      Why DOTX-1?
+    </h2>
+    <div class="features">
+      <div class="feature">
+        <h3>Ultra-Portable</h3>
+        <p>Lightweight, pocket-friendly, and always ready for ideas on the go.</p>
+      </div>
+      <div class="feature">
+        <h3>Playful Controls</h3>
+        <p>Knobs, buttons, and tactile feedback make creation fun and intuitive.</p>
+      </div>
+      <div class="feature">
+        <h3>Creative Engine</h3>
+        <p>Powerful sound and effect engine, perfect for music, design, or code experiments.</p>
+      </div>
+      <div class="feature">
+        <h3>USB-C & Bluetooth</h3>
+        <p>Modern connectivity for seamless integration with your workflow.</p>
+      </div>
+      <div class="feature">
+        <h3>Open Platform</h3>
+        <p>Hackable and customizable—make DOTX-1 truly yours!</p>
+      </div>
+    </div>
+    <section id="contact" style="margin-top:54px; text-align:center;">
+      <h2 style="font-family:'Montserrat',sans-serif;font-size:1.7rem;">Contact JusDots</h2>
+      <p>Want to learn more or get in touch?<br>
+        <a href="mailto:hello@jusdots.com" style="color:var(--accent2);font-weight:bold;text-decoration:none;">hello@jusdots.com</a>
+      </p>
+    </section>
+  </main>
+  <footer>
+    &copy; 2025 JusDots. Inspired by Teenage Engineering.
+  </footer>
 </body>
 </html>
