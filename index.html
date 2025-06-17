@@ -1,100 +1,92 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DOTX‑1</title>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JusDots Audio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <meta name="description" content="DOTX-1 by JusDots — clean, high‑performance earbuds. Like TE UI vibes.">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;600&display=swap');* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-body {
-  font-family: 'Outfit', sans-serif;
-  background-color: #000;
-  color: #fff;
-  overflow-x: hidden;
-}
-header {
-  padding: 2rem;
-  text-align: center;
-  font-size: 2.5rem;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-}
-.hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 4rem 2rem;
-}
-.hero img {
-  width: 80%;
-  max-width: 400px;
-  margin-bottom: 2rem;
-  border-radius: 20px;
-  box-shadow: 0 0 20px rgba(255,255,255,0.1);
-}
-.hero h2 {
-  font-size: 1.8rem;
-  font-weight: 300;
-  max-width: 600px;
-  text-align: center;
-  margin-bottom: 1.5rem;
-}
-.button {
-  background: #fff;
-  color: #000;
-  padding: 1rem 2rem;
-  border-radius: 50px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  transition: all 0.2s ease-in-out;
-}
-.button:hover {
-  background: #f05a22;
-  color: #fff;
-}
-.section {
-  padding: 4rem 2rem;
-  text-align: center;
-}
-.section h3 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-.section p {
-  font-size: 1rem;
-  color: #bbb;
-  max-width: 600px;
-  margin: 0 auto 2rem;
-}
-.footer {
-  padding: 2rem;
-  text-align: center;
-  font-size: 0.875rem;
-  color: #666;
-}
-
+    :root {
+      --bg-light: #f2f2f2;
+      --bg-dark: #181818;
+      --txt-light: #111;
+      --txt-dark: #fff;
+      --neu-light: #e6e6e6;
+      --neu-shadow: rgba(0,0,0,0.1);
+    }
+    [data-theme="light"] {
+      --bg: var(--bg-light); --txt: var(--txt-light);
+    }
+    [data-theme="dark"] {
+      --bg: var(--bg-dark); --txt: var(--txt-dark);
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      background: var(--bg); color: var(--txt);
+      font-family: 'Inter', sans-serif; min-height:100vh;
+      display:flex; flex-direction:column; align-items:center;
+      justify-content:center; padding:20px;
+    }
+    .neu {
+      background: var(--neu-light);
+      border-radius: 12px;
+      box-shadow: 6px 6px 12px var(--neu-shadow), -6px -6px 12px #fff;
+      transition: box-shadow .3s;
+    }
+    [data-theme="dark"] .neu {
+      background: var(--bg); box-shadow: 4px 4px 8px rgba(0,0,0,0.8), -4px -4px 8px rgba(255,255,255,0.05);
+    }
+    .neu:hover { box-shadow: inset 2px 2px 4px var(--neu-shadow), inset -2px -2px 4px #fff; }
+    header { position:fixed; top:20px; left:20px; font-weight:900; font-size:1.2rem; }
+    nav { position:fixed; top:20px; right:60px; }
+    nav a { margin-left:30px; text-decoration:none; color:var(--txt); font-weight:600; opacity:.8; transition:.3s; }
+    nav a:hover { opacity:1; }
+    .theme { cursor:pointer; padding:5px 10px; border:1px solid var(--txt); background:none; margin-left:20px; }
+    .hero { text-align:center; animation:fadeInUp .8s both .5s; }
+    .hero img { width:200px; margin-bottom:20px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1); transition:transform .3s; }
+    .hero img:hover { transform:scale(1.02); }
+    h1 { font-size:2.8rem; margin:20px 0; }
+    p { color: #555; margin-bottom:30px; }
+    .btn { display:inline-block; padding:12px 26px; background:var(--txt); color:var(--bg); border-radius:6px; font-weight:600; transition:.3s; }
+    .btn:hover { transform:scale(1.05); }
+    .wait neu, .waitlist { margin-top:30px; animation:fadeInUp .8s both 1s; }
+    input[type=email]{padding:10px;border:1px solid #ccc;border-radius:4px;width:200px;}
+    button[type=submit]{padding:10px 16px;background:var(--txt);color:var(--bg); border:none;border-radius:4px;}
+    footer{position:fixed;bottom:20px;font-size:.75rem;color:#888;}
+    @keyframes fadeInUp {
+      from {opacity:0; transform:translateY(20px);}
+      to {opacity:1; transform:translateY(0);}
+    }
   </style>
 </head>
 <body>
-  <header>DOTX‑1</header>  <section class="hero">
-    <img src="https://placehold.co/400x400?text=DOTX‑1" alt="DOTX‑1 Earbuds" />
-    <h2>Hybrid Sound. Wired or Wireless. Minimalist. Made for the future.</h2>
-    <a class="button" href="#">Shop Now</a>
-  </section>  <section class="section">
-    <h3>Design Forward</h3>
-    <p>DOTX‑1 blends matte and transparent textures with a lightweight in‑ear silicone fit. A design that makes a statement without shouting.</p>
-  </section>  <section class="section">
-    <h3>Hybrid Audio</h3>
-    <p>Switch seamlessly between Bluetooth and AUX. The bottom stem features a discreet 3.5mm port — unplug, and you're wireless.</p>
-  </section>  <section class="section">
-    <h3>Built for Detail</h3>
-    <p>Every corner, every curve — refined. Sound tuned with precision. Interface minimal and intuitive. Inspired by what’s next, not what’s now.</p>
-  </section>  <footer class="footer">
-    &copy; 2025 DOTX‑1. Engineered with intent.
-  </footer>
+  <header>JUSDOTS</header>
+  <nav>
+    <a href="#">Home</a>
+    <a href="DOTX1.html">DOTX-1</a>
+    <a href="#">Support</a>
+    <button class="theme" onclick="toggle()">Toggle</button>
+  </nav>
+  <div class="hero neu">
+    <img src="earbuds1.png" alt="DOTX‑1 Earbuds">
+    <h1>DOTX‑1</h1>
+    <p>Sound. Clarity. Simplicity.</p>
+    <a href="DOTX1.html" class="btn">Explore →</a>
+    <div class="waitlist neu">
+      <form action="https://formspree.io/f/yourID" method="POST">
+        <input type="email" name="email" placeholder="Join waitlist">
+        <button type="submit">JOIN</button>
+      </form>
+    </div>
+  </div>
+  <footer>&copy; 2025 JusDots Audio</footer>
+  <script>
+    function toggle(){
+      const html = document.documentElement;
+      const t = html.getAttribute("data-theme") === "light" ? "dark": "light";
+      html.setAttribute("data-theme",t); localStorage.theme = t;
+    }
+    if(localStorage.theme) document.documentElement.setAttribute("data-theme",localStorage.theme);
+  </script>
 </body>
 </html>
