@@ -1,0 +1,208 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DOTX-1 | JusDots Audio</title>
+  <meta name="description" content="DOTX-1 by JusDots – Inspired by Nothing.tech design">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fff;
+      color: #000;
+      line-height: 1.6;
+      transition: background 0.3s, color 0.3s;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      border-bottom: 1px solid #ccc;
+    }
+    .logo {
+      font-size: 1.5em;
+      font-weight: 900;
+      letter-spacing: 2px;
+    }
+    nav a {
+      margin-left: 30px;
+      text-decoration: none;
+      color: inherit;
+      font-weight: 500;
+      font-size: 0.9em;
+      position: relative;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 1px;
+      bottom: -2px;
+      left: 0;
+      background-color: currentColor;
+      transition: width 0.3s;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+    .section {
+      padding: 100px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .hero img {
+      width: 300px;
+      margin-bottom: 40px;
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    h1 {
+      font-size: 3em;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+    }
+    h2 {
+      font-size: 2em;
+      margin-bottom: 40px;
+    }
+    p {
+      font-size: 1.1em;
+      margin-bottom: 40px;
+      color: #444;
+    }
+    .btn, .buy-btn, button[type=submit] {
+      background: #000;
+      color: #fff;
+      padding: 15px 30px;
+      border: none;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      letter-spacing: 1px;
+      transition: background 0.3s, transform 0.2s;
+      font-size: 0.9em;
+    }
+    .btn:hover, .buy-btn:hover, button[type=submit]:hover {
+      background: #111;
+      transform: translateY(-2px);
+    }
+    .features-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-top: 40px;
+    }
+    .feature {
+      border-top: 1px solid #ccc;
+      padding-top: 20px;
+    }
+    .product img {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto 20px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    input[type=email] {
+      padding: 15px;
+      font-size: 1em;
+      border: 1px solid #ccc;
+      outline: none;
+    }
+    footer {
+      text-align: center;
+      padding: 60px 20px;
+      font-size: 0.8em;
+      color: #999;
+      border-top: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">JUSDOTS</div>
+    <nav>
+      <a href="#features">FEATURES</a>
+      <a href="#shop">SHOP</a>
+      <a href="#waitlist">WAITLIST</a>
+    </nav>
+  </header>  <section class="section hero">
+    <img src="earbuds1.png" alt="DOTX-1 Earbuds">
+    <h1>DOTX-1</h1>
+    <p>True wireless. Ultra clear. Nothing extra.</p>
+    <a href="#shop" class="btn">BUY NOW</a>
+  </section>  <section class="section" id="features">
+    <h2>FEATURES</h2>
+    <div class="features-list">
+      <div class="feature">
+        <h3>PURE SOUND</h3>
+        <p>Studio-grade drivers with deep bass & crystal highs.</p>
+      </div>
+      <div class="feature">
+        <h3>LOW LATENCY</h3>
+        <p>Optimized for gaming, videos, and real-time audio sync.</p>
+      </div>
+      <div class="feature">
+        <h3>ALL-DAY BATTERY</h3>
+        <p>Up to 8+24 hours with quick Type-C charging.</p>
+      </div>
+      <div class="feature">
+        <h3>ICONIC DESIGN</h3>
+        <p>Transparent shell, subtle glow, show off without flexing.</p>
+      </div>
+    </div>
+  </section>  <section class="section" id="shop">
+    <h2>SHOP</h2>
+    <div class="product">
+      <img src="earbuds1.png" alt="DOTX-1">
+      <h3>DOTX-1</h3>
+      <p>₹4999 - Now Shipping</p>
+      <a href="https://your-payment-link.com" target="_blank" class="buy-btn">BUY NOW</a>
+    </div>
+  </section>  <section class="section" id="waitlist">
+    <h2>WAITLIST</h2>
+    <p>Get notified on drops, restocks & updates</p>
+    <form action="https://formspree.io/f/yourFormID" method="POST">
+      <input type="email" name="email" placeholder="you@example.com" required>
+      <button type="submit">JOIN</button>
+    </form>
+  </section>  <footer>
+    &copy; 2025 JusDots Audio. Clean AF. Inspired by Nothing.tech.
+  </footer>  <script>
+    // Animation reveal on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.section').forEach(section => {
+      observer.observe(section);
+    });
+  </script></body>
+</html>
