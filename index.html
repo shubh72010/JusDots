@@ -1,154 +1,100 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DOTX‑1 Modular Synth UI</title>
+  <title>DOTX‑1</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;600&display=swap');* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: #000;
+  color: #fff;
+  overflow-x: hidden;
+}
+header {
+  padding: 2rem;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem 2rem;
+}
+.hero img {
+  width: 80%;
+  max-width: 400px;
+  margin-bottom: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(255,255,255,0.1);
+}
+.hero h2 {
+  font-size: 1.8rem;
+  font-weight: 300;
+  max-width: 600px;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.button {
+  background: #fff;
+  color: #000;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.2s ease-in-out;
+}
+.button:hover {
+  background: #f05a22;
+  color: #fff;
+}
+.section {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+.section h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.section p {
+  font-size: 1rem;
+  color: #bbb;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+.footer {
+  padding: 2rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #666;
+}
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Share Tech Mono', monospace;
-      background: #0a0a0a;
-      color: #eee;
-      overflow-x: hidden;
-    }
-    .synthboard {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      padding: 4rem 2rem;
-    }
-    .module {
-      background: #111;
-      border: 2px solid #2b2b2b;
-      border-radius: 16px;
-      padding: 2rem;
-      text-align: center;
-      box-shadow: 0 0 20px rgba(255, 90, 0, 0.05);
-      position: relative;
-      transition: transform 0.3s ease;
-    }
-    .module:hover {
-      transform: translateY(-5px);
-    }
-    .knob {
-      width: 100px;
-      height: 100px;
-      margin: 1rem auto;
-      border-radius: 50%;
-      background: radial-gradient(#333, #111);
-      border: 4px solid #f05a22;
-      position: relative;
-      cursor: grab;
-    }
-    .knob::after {
-      content: '';
-      position: absolute;
-      top: 15%;
-      left: 50%;
-      width: 4px;
-      height: 20px;
-      background: #f05a22;
-      transform: translateX(-50%);
-      border-radius: 2px;
-    }
-    .slider {
-      width: 100%;
-      margin: 1rem 0;
-    }
-    input[type="range"] {
-      width: 100%;
-      background: #222;
-      height: 6px;
-      border-radius: 6px;
-    }
-    input[type="range"]::-webkit-slider-thumb {
-      appearance: none;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background: #f05a22;
-      box-shadow: 0 0 8px #f05a22;
-    }
-    .led {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: #222;
-      margin: 0 auto 1rem;
-      box-shadow: 0 0 2px #000;
-    }
-    .led.active {
-      background: #0f0;
-      box-shadow: 0 0 6px #0f0;
-    }
-    .button {
-      padding: 0.8rem 2rem;
-      border: 2px solid #f05a22;
-      background: #1a1a1a;
-      color: #f05a22;
-      text-transform: uppercase;
-      border-radius: 10px;
-      margin-top: 1rem;
-      transition: 0.2s;
-    }
-    .button:hover {
-      background: #f05a22;
-      color: #000;
-    }
   </style>
 </head>
 <body>
-  <h1 style="text-align:center; font-size:2.5rem; padding-top:2rem;">DOTX‑1 Control Panel</h1>
-  <div class="synthboard">
-    <div class="module">
-      <div class="led" id="led1"></div>
-      <div class="knob" id="knob1"></div>
-      <label>Sound</label>
-      <input class="slider" type="range" min="0" max="100" value="50" />
-      <button class="button" onclick="activateLED('led1')">Activate</button>
-    </div>
-    <div class="module">
-      <div class="led" id="led2"></div>
-      <div class="knob" id="knob2"></div>
-      <label>Transparency</label>
-      <input class="slider" type="range" min="0" max="100" value="30" />
-      <button class="button" onclick="activateLED('led2')">Toggle Shell</button>
-    </div>
-    <div class="module">
-      <div class="led" id="led3"></div>
-      <div class="knob" id="knob3"></div>
-      <label>Power Mode</label>
-      <input class="slider" type="range" min="0" max="100" value="70" />
-      <button class="button" onclick="activateLED('led3')">Boost</button>
-    </div>
-  </div>
-
-  <script>
-    const knobs = document.querySelectorAll('.knob');
-    knobs.forEach(knob => {
-      let angle = 0;
-      let dragging = false;
-
-      knob.addEventListener('mousedown', () => dragging = true);
-      window.addEventListener('mouseup', () => dragging = false);
-      window.addEventListener('mousemove', (e) => {
-        if (!dragging) return;
-        angle += e.movementX;
-        knob.style.transform = `rotate(${angle}deg)`;
-      });
-    });
-
-    function activateLED(id) {
-      const led = document.getElementById(id);
-      led.classList.toggle('active');
-    }
-  </script>
+  <header>DOTX‑1</header>  <section class="hero">
+    <img src="https://placehold.co/400x400?text=DOTX‑1" alt="DOTX‑1 Earbuds" />
+    <h2>Hybrid Sound. Wired or Wireless. Minimalist. Made for the future.</h2>
+    <a class="button" href="#">Shop Now</a>
+  </section>  <section class="section">
+    <h3>Design Forward</h3>
+    <p>DOTX‑1 blends matte and transparent textures with a lightweight in‑ear silicone fit. A design that makes a statement without shouting.</p>
+  </section>  <section class="section">
+    <h3>Hybrid Audio</h3>
+    <p>Switch seamlessly between Bluetooth and AUX. The bottom stem features a discreet 3.5mm port — unplug, and you're wireless.</p>
+  </section>  <section class="section">
+    <h3>Built for Detail</h3>
+    <p>Every corner, every curve — refined. Sound tuned with precision. Interface minimal and intuitive. Inspired by what’s next, not what’s now.</p>
+  </section>  <footer class="footer">
+    &copy; 2025 DOTX‑1. Engineered with intent.
+  </footer>
 </body>
 </html>
