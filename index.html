@@ -1,189 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>DOTX-1 | Flake Audio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
 
+  <!-- NothingUI Styles -->
+  <link rel="stylesheet" href="https://nothing-ui-library.netlify.app/css/nothing-ui.min.css">
+  
+  <style>
     body {
+      margin: 0;
       font-family: 'Space Grotesk', sans-serif;
       background: #0f0f0f;
-      color: white;
+      color: #fff;
       overflow-x: hidden;
     }
-
-    header {
-      position: fixed;
-      width: 100%;
-      top: 0;
-      left: 0;
-      padding: 1rem 2rem;
-      background: rgba(15, 15, 15, 0.8);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 10;
-    }
-
-    header h1 {
-      font-weight: 700;
-      font-size: 1.5rem;
-      letter-spacing: 2px;
-    }
-
-    header nav a {
-      color: #aaa;
-      margin-left: 1.5rem;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    header nav a:hover {
-      color: white;
-    }
-
-    .hero {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+    /* Mobile-first Teenage-inspired design */
+    .hero-mobile {
+      padding: 4rem 1.5rem;
       text-align: center;
-      padding: 5rem 2rem 2rem;
     }
-
-    .hero h2 {
-      font-size: 3rem;
-      font-weight: 700;
+    .hero-mobile h1 {
+      font-size: 2.5rem;
       margin-bottom: 1rem;
-      letter-spacing: 1px;
     }
-
-    .hero p {
-      max-width: 600px;
+    .hero-mobile p {
       font-size: 1rem;
-      color: #aaa;
-      margin-bottom: 2rem;
+      color: #ccc;
+      max-width: 90%;
+      margin: 0 auto 2rem;
     }
-
-    .hero img {
-      width: 70%;
-      max-width: 400px;
-      margin-top: 1rem;
+    .floating-panel {
+      position: relative;
+      background: rgba(255,255,255,0.05);
+      border: 2px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1rem;
+      perspective: 600px;
+      transform: translateY(0);
+      transition: transform 0.4s ease;
     }
-
-    .section {
-      padding: 5rem 2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
+    .floating-panel:hover {
+      transform: translateY(-10px);
     }
-
-    .section h3 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    .section p {
-      max-width: 600px;
-      color: #aaa;
-    }
-
-    footer {
-      padding: 2rem;
-      text-align: center;
-      font-size: 0.9rem;
-      color: #555;
-    }
-
-    @media (min-width: 768px) {
-      .hero {
-        flex-direction: row;
-        text-align: left;
-        justify-content: space-around;
-        align-items: center;
-        padding-top: 6rem;
+    /* Desktop overrides for NothingUI structure */
+    @media(min-width: 768px) {
+      body {
+        --nothing-bg: #0f0f0f;
       }
-
-      .hero h2 {
+      .hero-mobile {
+        display: none;
+      }
+      .desktop-hero {
+        margin: 6rem auto;
+        max-width: 1200px;
+        text-align: left;
+      }
+      .desktop-hero h1 {
         font-size: 4rem;
       }
-
-      .hero p {
+      .desktop-hero p {
         font-size: 1.25rem;
+        color: #aaa;
+        max-width: 600px;
       }
-
-      .hero img {
-        max-width: 500px;
-        width: 40%;
+      .features {
+        display: flex;
+        justify-content: space-between;
+        gap: 2rem;
+        margin: 4rem auto;
+        max-width: 1200px;
       }
-
-      .section {
-        flex-direction: row;
-        justify-content: space-around;
-        text-align: left;
-      }
-
-      .section > div {
-        flex: 1;
+      .feature-card {
+        background: var(--nothing-card-bg, #111);
+        border-radius: 8px;
         padding: 2rem;
+        flex: 1;
+        text-align: center;
+      }
+      .feature-card h3 {
+        font-size: 1.75rem;
+        margin-bottom: 1rem;
+      }
+      .feature-card p {
+        font-size: 1rem;
+        color: #ddd;
       }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>DOTX-1</h1>
-    <nav>
-      <a href="#features">Features</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
 
-  <main>
-    <section class="hero">
-      <div>
-        <h2>Hybrid. Raw. London-Born.</h2>
-        <p>The DOTX-1 is the first of its kind: plug in with AUX or float free with Bluetooth. Engineered with chaos, designed for clarity.</p>
-      </div>
-      <img src="/assets/dotx1-render.png" alt="DOTX-1 Earbuds Render">
-    </section>
+  <!-- Mobile (Teenage Engineering style) -->
+  <section class="hero-mobile">
+    <h1>DOTX‑1</h1>
+    <p>Hybrid AUX+BT audio architecture. Engineered chaos in your ear.</p>
+    <div class="floating-panel">
+      🔗 AUX + BT Hybrid
+    </div>
+    <div class="floating-panel">
+      💡 Transparent Minimalism
+    </div>
+    <div class="floating-panel">
+      🧠 Intelligent Sound
+    </div>
+  </section>
 
-    <section id="features" class="section">
-      <div>
-        <h3>🔗 AUX + BT Hybrid</h3>
-        <p>Flip between legacy and wireless on the fly with a built-in 3.5mm port on the stem.</p>
-      </div>
-      <div>
-        <h3>💡 Transparent Minimalism</h3>
-        <p>Custom case with matte accents. Pure, stripped-down aesthetics for focused functionality.</p>
-      </div>
-      <div>
-        <h3>🧠 Intelligent Sound</h3>
-        <p>Balanced tuning with deep lows and crisp highs. Perfect for chaoscore playlists and midnight chill.</p>
-      </div>
-    </section>
+  <!-- Desktop (Nothing UI structure) -->
+  <section class="desktop-hero">
+    <h1 class="h-1">DOTX‑1</h1>
+    <p class="font-md-2">Hybrid AUX+BT audio architecture. Engineered chaos in your ear.</p>
+  </section>
+  <section class="features">
+    <div class="feature-card">
+      <h3>AUX + BT Hybrid</h3>
+      <p>Switch instantly between wired and wireless without skipping a beat.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Transparent Minimalism</h3>
+      <p>Stripped-down design, pure aesthetics, zero fluff.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Balanced Sound</h3>
+      <p>Deep lows, crisp highs—tuned for chaoscore to midnight chill.</p>
+    </div>
+  </section>
 
-    <section id="about" class="section">
-      <div>
-        <h3>Designed in London</h3>
-        <p>DOTX-1 was born from a bedroom in India but forged in the mindset of global minimalism. This isn’t just another earbud. It’s a design statement.</p>
-      </div>
-    </section>
-
-    <footer>
-      &copy; 2025 Dotx Audio Ltd. — Designed in London. Engineered for chaos.
-    </footer>
-  </main>
 </body>
 </html>
-
