@@ -654,4 +654,119 @@
                     
                     <div class="mode-toggle">
                         <div class="mode active" id="bluetoothMode">
+<!-- ... (rest of your code above) ... -->
+<div class="mode active" id="bluetoothMode">
+    <div class="mode-title">Bluetooth</div>
+    <div class="mode-subtitle">Freedom. No wires, just music.</div>
+</div>
+<div class="mode" id="auxMode">
+    <div class="mode-title">AUX Wired</div>
+    <div class="mode-subtitle">Zero latency. Pure analog clarity.</div>
+</div>
+</div>
+<div id="modeDescription" style="font-size:1.1rem; color:#fff; margin-top:30px;">
+    Enjoy seamless wireless sound with ultra-low latency and robust connectivity.
+</div>
+</div>
+</div>
+</section>
+
+<section id="specs" class="features-section">
+    <div class="container">
+        <h2 class="section-title">Specifications</h2>
+        <div class="specs-grid">
+            <div class="spec-item">
+                <div class="spec-label">Battery (Wireless)</div>
+                <div class="spec-value">8 hrs</div>
+            </div>
+            <div class="spec-item">
+                <div class="spec-label">Battery (Wired)</div>
+                <div class="spec-value">∞</div>
+            </div>
+            <div class="spec-item">
+                <div class="spec-label">Bluetooth</div>
+                <div class="spec-value">5.3</div>
+            </div>
+            <div class="spec-item">
+                <div class="spec-label">Driver</div>
+                <div class="spec-value">12mm Hybrid</div>
+            </div>
+            <div class="spec-item">
+                <div class="spec-label">Water Resistance</div>
+                <div class="spec-value">IPX5</div>
+            </div>
+            <div class="spec-item">
+                <div class="spec-label">Weight</div>
+                <div class="spec-value">4.1g</div>
+            </div>
+            <div class="spec-item">
+                <div class="spec-label">Charging</div>
+                <div class="spec-value">USB-C</div>
+            </div>
+            <div class="spec-item">
+                <div class="spec-label">AUX Port</div>
+                <div class="spec-value">3.5mm</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="pricing" class="pricing-section">
+    <div class="container">
+        <div class="pricing-card">
+            <div class="price">$149</div>
+            <div class="price-subtitle">Pre-order now. Ships August 2025.</div>
+            <a href="#" class="cta-button">Reserve Yours</a>
+        </div>
+    </div>
+</section>
+
+<section class="inspiration-section">
+    <div class="container">
+        <h2 class="section-title">Design Inspiration</h2>
+        <div class="inspiration-grid">
+            <div class="inspiration-card">
+                <div class="inspiration-title">Nothing Tech</div>
+                <div class="inspiration-description">Transparent stem inspired by the engineering-first philosophy of Nothing's earbud lineup.</div>
+            </div>
+            <div class="inspiration-card">
+                <div class="inspiration-title">Classic Rotary Phones</div>
+                <div class="inspiration-description">The rotary ring is a nostalgic nod to the tactile controls of old-school telephony.</div>
+            </div>
+            <div class="inspiration-card">
+                <div class="inspiration-title">Studio Monitors</div>
+                <div class="inspiration-description">Wired mode delivers latency-free, reference-grade audio for creators and audiophiles.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer style="padding: 40px 0; text-align: center; color: #a0a0a0; font-size: 1rem;">
+    &copy; 2025 DotX. All rights reserved.
+</footer>
+
+<script>
+    // Hybrid mode toggle logic
+    const bluetoothMode = document.getElementById('bluetoothMode');
+    const auxMode = document.getElementById('auxMode');
+    const modeDescription = document.getElementById('modeDescription');
+
+    bluetoothMode.addEventListener('click', function() {
+        bluetoothMode.classList.add('active');
+        auxMode.classList.remove('active');
+        modeDescription.innerHTML = "Enjoy seamless wireless sound with ultra-low latency and robust connectivity.";
+    });
+
+    auxMode.addEventListener('click', function() {
+        auxMode.classList.add('active');
+        bluetoothMode.classList.remove('active');
+        modeDescription.innerHTML = "Switch to analog mode for zero-latency, battery-free playback with classic 3.5mm AUX.";
+    });
+</script>
+
+<!-- Optional: Google Fonts link for Inter (add to <head> if not present) -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+
+</body>
+</html>
                   
