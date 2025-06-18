@@ -1,156 +1,439 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>JusDots</title>
-  <meta name="description" content="JusDots — Playful audio hardware.">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;900&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --tile-bg: #fff;
-      --tile-shadow: 0 2px 18px 0 rgba(0,0,0,0.05);
-      --tile-shadow-hover: 0 8px 32px 0 rgba(0,0,0,0.13);
-      --border-radius: 28px;
-      --transition: 0.19s cubic-bezier(.48,.08,.32,1.18);
-    }
-    html, body {
-      height: 100%;
-      width: 100%;
-      margin: 0;
-      padding: 0;
-      background: #fff;
-      color: #171717;
-      font-family: 'Inter', Arial, sans-serif;
-      font-weight: 400;
-      min-height: 100vh;
-    }
-    body {
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-    header {
-      width: 100vw;
-      padding: 30px 0 22px 0;
-      box-sizing: border-box;
-      display: flex;
-      align-items: flex-start;
-      justify-content: flex-start;
-      background: #fff;
-      z-index: 2;
-    }
-    .logo {
-      font-family: 'Inter', sans-serif;
-      font-weight: 900;
-      font-size: 2.4rem;
-      letter-spacing: .08em;
-      margin-left: 44px;
-      user-select: none;
-      color: #171717;
-    }
-    main {
-      flex: 1;
-      width: 100vw;
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-    }
-    .tiles {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 54px;
-      width: 100vw;
-      max-width: 1200px;
-      margin: 30px 0 0 0;
-      padding: 0 5vw 60px 5vw;
-      box-sizing: border-box;
-      justify-items: center;
-    }
-    .tile-link {
-      text-decoration: none;
-      color: inherit;
-      width: 100%;
-      max-width: 330px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .tile {
-      background: var(--tile-bg);
-      border-radius: var(--border-radius);
-      box-shadow: var(--tile-shadow);
-      width: 100%;
-      aspect-ratio: 1 / 1.1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: box-shadow var(--transition), transform var(--transition);
-      will-change: box-shadow, transform;
-      position: relative;
-      margin-bottom: 18px;
-      cursor: pointer;
-      overflow: hidden;
-    }
-    .tile:hover {
-      box-shadow: var(--tile-shadow-hover);
-      transform: translateY(-6px) scale(1.03);
-    }
-    .tile img {
-      width: 80%;
-      height: 80%;
-      object-fit: contain;
-      display: block;
-      margin: 0 auto;
-      background: transparent;
-      user-select: none;
-      pointer-events: none;
-    }
-    .product-name {
-      font-family: 'Inter', sans-serif;
-      font-weight: 700;
-      font-size: 1.19rem;
-      letter-spacing: 0.03em;
-      text-align: center;
-      margin: 0 0 0.5em 0;
-      padding: 0;
-      color: #222;
-      background: none;
-      border-radius: 0 0 16px 16px;
-      user-select: none;
-      line-height: 1.1;
-    }
-    @media (max-width: 700px) {
-      header { padding: 18px 0 12px 0; }
-      .logo { font-size: 1.4rem; margin-left: 18px; }
-      .tiles { gap: 22px; padding: 0 2vw 30px 2vw; }
-      .tile { border-radius: 13px; }
-      .product-name { font-size: 1.03rem; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JusDots Labs - Premium Audio Equipment</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+            line-height: 1.4;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: -0.5px;
+            color: #000;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ff6b35;
+        }
+
+        .hero {
+            padding: 80px 0 120px;
+            text-align: center;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateX(-50%) translateY(-50%) rotate(0deg); }
+            100% { transform: translateX(-50%) translateY(-50%) rotate(360deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            letter-spacing: -3px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #ff6b35;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .products {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 80px;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .product-card {
+            background: #f8f8f8;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+
+        .product-image {
+            height: 250px;
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image::before {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
+
+        .product-info {
+            padding: 30px;
+        }
+
+        .product-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+        }
+
+        .product-description {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .product-price {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #ff6b35;
+        }
+
+        .features {
+            padding: 100px 0;
+            background: #000;
+            color: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 60px;
+        }
+
+        .feature {
+            text-align: center;
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: #ff6b35;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 2rem;
+        }
+
+        .feature h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+        }
+
+        footer {
+            background: #111;
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #ff6b35;
+        }
+
+        .copyright {
+            border-top: 1px solid #333;
+            padding-top: 30px;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                padding: 60px 0;
+            }
+            
+            .product-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <div class="logo">JusDots</div>
-  </header>
-  <main>
-    <div class="tiles">
-      <!-- Product tile example (DOTX-1) -->
-      <a href="DOTX1.html" class="tile-link">
-        <div class="tile">
-          <img src="earbuds1.png" alt="DOTX-1"/>
+    <header>
+        <nav class="container">
+            <div class="logo">JusDots Labs</div>
+            <ul class="nav-links">
+                <li><a href="#products">PRODUCTS</a></li>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#support">SUPPORT</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>SOUND PERFECTED</h1>
+                <p>Precision-engineered audio equipment for creators, producers, and audio enthusiasts who demand nothing but the best.</p>
+                <a href="#products" class="cta-button">EXPLORE PRODUCTS</a>
+            </div>
         </div>
-        <div class="product-name">DOTX-1</div>
-      </a>
-      <!-- Duplicate and customize for more products:-->
-      <a href="PRODUCT2.html" class="tile-link">
-        <div class="tile">
-          <img src="product2.png" alt="Product 2"/>
+    </section>
+
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title">OUR PRODUCTS</h2>
+            <div class="product-grid">
+                <div class="product-card" onclick="window.location.href='DOTX-1.html'">
+                    <div class="product-image" style="background: linear-gradient(45deg, #ff6b35, #f7931e); padding: 20px;">
+                        <img src="earbuds1.png" alt="DOTX-1 Earbuds" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">DOTX-1</h3>
+                        <p class="product-description">Premium wireless earbuds with active noise cancellation and studio-quality sound.</p>
+                        <div class="product-price">Coming Soon</div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="product-name">PRODUCT 2</div>
-      </a>
-      
-    </div>
-  </main>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">WHY CHOOSE US</h2>
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon">⚡</div>
+                    <h3>PRECISION ENGINEERING</h3>
+                    <p>Every component is meticulously designed and tested to deliver uncompromising audio quality.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🎯</div>
+                    <h3>STUDIO GRADE</h3>
+                    <p>Professional-level equipment trusted by producers and engineers worldwide.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">♻️</div>
+                    <h3>SUSTAINABLE</h3>
+                    <p>Built to last with environmentally conscious manufacturing and materials.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>PRODUCTS</h4>
+                    <a href="DOTX-1.html">DOTX-1 Earbuds</a>
+                    <a href="#">More Coming Soon</a>
+                </div>
+                <div class="footer-section">
+                    <h4>SUPPORT</h4>
+                    <a href="#">Documentation</a>
+                    <a href="#">Warranty</a>
+                    <a href="#">Repairs</a>
+                    <a href="#">Contact</a>
+                </div>
+                <div class="footer-section">
+                    <h4>COMPANY</h4>
+                    <a href="#">About Us</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Press</a>
+                    <a href="#">News</a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 JusDots Labs. ALL RIGHTS RESERVED.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Product card interaction
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+    </script>
 </body>
 </html>
