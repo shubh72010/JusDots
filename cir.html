@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DOTX-1 Mobile Circuit Layout</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0f0f0f;
+      color: white;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .wrapper {
+      padding: 20px;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .circuit {
+      background: #1e1e1e;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+      width: 100%;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
+
+    svg {
+      width: 100%;
+      height: auto;
+    }
+
+    .part {
+      fill: #3c3c3c;
+      stroke: #888;
+      stroke-width: 1.5;
+    }
+
+    .line {
+      stroke: #fff;
+      stroke-width: 2;
+    }
+
+    .label {
+      font-size: 10px;
+      fill: #fff;
+      text-anchor: middle;
+      pointer-events: none;
+    }
+
+    @media (max-width: 320px) {
+      h2 {
+        font-size: 16px;
+      }
+      .label {
+        font-size: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="circuit">
+      <h2>DOTX-1 Internal Circuit</h2>
+      <svg viewBox="0 0 200 700" preserveAspectRatio="xMidYMid meet">
+
+        <!-- SPEAKER -->
+        <rect x="70" y="20" width="60" height="30" class="part"/>
+        <text x="100" y="40" class="label">Speaker</text>
+
+        <!-- Audio Processor -->
+        <rect x="60" y="80" width="80" height="30" class="part"/>
+        <text x="100" y="100" class="label">Audio DSP</text>
+
+        <!-- Bluetooth Module -->
+        <rect x="60" y="140" width="80" height="30" class="part"/>
+        <text x="100" y="160" class="label">Bluetooth</text>
+
+        <!-- ENC -->
+        <rect x="60" y="200" width="80" height="30" class="part"/>
+        <text x="100" y="220" class="label">ENC Chip</text>
+
+        <!-- Mic -->
+        <circle cx="100" cy="270" r="15" class="part"/>
+        <text x="100" y="295" class="label">Mic</text>
+
+        <!-- AUX Port -->
+        <rect x="60" y="320" width="80" height="30" class="part"/>
+        <text x="100" y="340" class="label">AUX Port</text>
+
+        <!-- Battery Connector -->
+        <rect x="60" y="380" width="80" height="30" class="part"/>
+        <text x="100" y="400" class="label">Battery</text>
+
+        <!-- Charging Pins -->
+        <rect x="80" y="440" width="40" height="20" class="part"/>
+        <text x="100" y="470" class="label">Charging</text>
+
+        <!-- Connecting lines -->
+        <line x1="100" y1="50" x2="100" y2="80" class="line"/>
+        <line x1="100" y1="110" x2="100" y2="140" class="line"/>
+        <line x1="100" y1="170" x2="100" y2="200" class="line"/>
+        <line x1="100" y1="230" x2="100" y2="255" class="line"/>
+        <line x1="100" y1="285" x2="100" y2="320" class="line"/>
+        <line x1="100" y1="350" x2="100" y2="380" class="line"/>
+        <line x1="100" y1="410" x2="100" y2="440" class="line"/>
+      </svg>
+    </div>
+  </div>
+</body>
+</html>
