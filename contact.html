@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | JusDots Labs</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+    :root {
+      --background: #111216;
+      --accent: #3a3f4b;
+      --accent2: #60a5fa;
+      --text-main: #fff;
+      --text-secondary: #6b7280;
+      --glass-bg: rgba(34,36,40,0.72);
+      --glass-border: 1.5px solid rgba(107,114,128,0.13);
+      --glass-shadow: 0 4px 32px 0 rgba(60,64,80,0.10);
+      --accent-gradient: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', Arial, sans-serif;
+      background: var(--background);
+      color: var(--text-main);
+      min-height: 100vh;
+      scroll-behavior: smooth;
+    }
+    nav {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      background: rgba(20,18,30,0.92);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.1rem 3vw 1.1rem 3vw;
+      z-index: 100;
+      box-shadow: 0 2px 16px 0 rgba(162,89,255,0.06);
+      backdrop-filter: blur(8px);
+      border-bottom: var(--glass-border);
+      opacity: 0;
+      transform: translateY(-40px);
+      animation: navFadeIn 1.1s 0.1s cubic-bezier(.77,0,.18,1) forwards;
+    }
+    .nav-logo {
+      font-size: clamp(1.5rem, 6vw, 2.7rem);
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      user-select: none;
+      position: relative;
+      z-index: 2;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+    }
+    .nav-link {
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 1.08rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      position: relative;
+      transition: color 0.18s;
+    }
+    .nav-link::after {
+      content: '';
+      display: block;
+      height: 2px;
+      width: 0;
+      background: var(--accent2);
+      transition: width 0.2s;
+      position: absolute;
+      left: 0; bottom: -4px;
+    }
+    .nav-link:hover {
+      color: var(--accent2);
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    .dot-bg {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      background-image: radial-gradient(circle, rgba(96,165,250,0.08) 1.5px, transparent 1.5px);
+      background-size: 32px 32px;
+    }
+    .contact-hero {
+      min-height: 60vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(2rem, 6vw, 6vw) 2vw clamp(1.5rem, 4vw, 3vw) 2vw;
+      background: var(--background);
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+    .contact-logo {
+      font-size: clamp(2.2rem, 10vw, 5.2rem);
+      font-weight: 900;
+      letter-spacing: 0.22em;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1.1rem;
+      z-index: 2;
+      text-align: center;
+      position: relative;
+      overflow: visible;
+    }
+    .contact-logo::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 60%;
+      width: 120%;
+      height: 60%;
+      pointer-events: none;
+      background: linear-gradient(90deg, rgba(96,165,250,0.12) 0%, rgba(255,255,255,0.18) 50%, rgba(96,165,250,0.12) 100%);
+      filter: blur(18px);
+      border-radius: 50%;
+      transform: translate(-50%, -50%) scale(1.1);
+      z-index: -1;
+      animation: logoGlow 4s linear infinite alternate;
+    }
+    @keyframes logoGlow {
+      0% { opacity: 0.7; }
+      100% { opacity: 1; }
+    }
+    .discord-cta {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 2.5rem;
+      gap: 2.2rem;
+    }
+    .discord-btn {
+      display: flex;
+      align-items: center;
+      gap: 1.1rem;
+      padding: 1.3rem 3.2rem;
+      background: linear-gradient(90deg, #5865F2 0%, #60a5fa 100%);
+      color: #fff;
+      border: none;
+      border-radius: 2.7rem;
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: 0.09em;
+      box-shadow: 0 4px 24px 0 rgba(96,165,250,0.13);
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      animation: ctaPulse 2.2s infinite alternate cubic-bezier(.77,0,.18,1);
+      position: relative;
+      overflow: hidden;
+    }
+    .discord-btn:hover {
+      background: linear-gradient(90deg, #60a5fa 0%, #5865F2 100%);
+      transform: scale(1.04) translateY(-2px);
+      box-shadow: 0 8px 40px 0 rgba(96,165,250,0.22);
+    }
+    .discord-btn svg {
+      width: 2.2rem;
+      height: 2.2rem;
+      fill: #fff;
+      filter: drop-shadow(0 0 8px #5865F2);
+    }
+    @keyframes ctaPulse {
+      0% { box-shadow: 0 4px 24px 0 rgba(96,165,250,0.13); }
+      100% { box-shadow: 0 8px 40px 0 rgba(96,165,250,0.22); }
+    }
+    .discord-username-card {
+      background: var(--glass-bg);
+      border-radius: 1.4rem;
+      box-shadow: 0 8px 32px 0 rgba(96,165,250,0.13);
+      border: 1.5px solid var(--accent2);
+      backdrop-filter: blur(10px) saturate(1.2);
+      padding: 1.2rem 2.2rem;
+      display: flex;
+      align-items: center;
+      gap: 1.1rem;
+      margin-top: 0.7rem;
+      font-size: 1.18rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.04em;
+      transition: box-shadow 0.2s, border 0.2s;
+    }
+    .discord-username-card svg {
+      width: 1.7rem;
+      height: 1.7rem;
+      fill: #60a5fa;
+    }
+    footer {
+      color: var(--text-secondary);
+      text-align: center;
+      padding: 2.5rem 0 1.2rem 0;
+      font-size: 1rem;
+      letter-spacing: 0.03em;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: footerIn 1.1s 2.4s cubic-bezier(.77,0,.18,1) forwards;
+      background: var(--glass-bg);
+      border-top: var(--glass-border);
+      box-shadow: 0 -2px 16px 0 rgba(162,89,255,0.10);
+      backdrop-filter: blur(8px);
+    }
+    .footer-links {
+      margin-top: 1.2rem;
+      display: flex;
+      justify-content: center;
+      gap: 2.2rem;
+    }
+    .footer-link {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.08rem;
+      transition: color 0.2s;
+    }
+    .footer-link:hover {
+      color: var(--accent2);
+      text-decoration: underline;
+    }
+    @keyframes navFadeIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes footerIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 900px) {
+      .contact-hero {
+        padding: clamp(1.2rem, 4vw, 2.2rem) 2vw clamp(0.7rem, 2vw, 1.2rem) 2vw;
+      }
+      .discord-btn {
+        padding: 1.1rem 1.7rem;
+        font-size: 1.1rem;
+      }
+      .discord-username-card {
+        padding: 1rem 1.2rem;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-logo">JusDots Labs</div>
+    <div class="nav-links">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="dotx-1.html">DOTX-1</a>
+      <a class="nav-link" href="contact.html">Contact</a>
+    </div>
+  </nav>
+  <section class="contact-hero">
+    <div class="dot-bg"></div>
+    <div class="contact-logo">JusDots Labs</div>
+    <div class="discord-cta">
+      <a class="discord-btn" href="https://discord.gg/uGjfx9qejg" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276c-.598.3428-1.2205.6447-1.8733.8923a.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1835 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1836 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg>
+        Join our Discord
+      </a>
+      <div class="discord-username-card">
+        <svg viewBox="0 0 24 24"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276c-.598.3428-1.2205.6447-1.8733.8923a.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1835 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1836 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg>
+        flakesofsmth
+      </div>
+    </div>
+  </section>
+  <footer>
+    &copy; 2024 JusDots Labs. All rights reserved.
+    <div class="footer-links">
+      <a class="footer-link" href="#">Instagram</a>
+      <a class="footer-link" href="#">YouTube</a>
+      <a class="footer-link" href="#">Contact</a>
+    </div>
+  </footer>
+</body>
+</html> 
