@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>T-ZRO Watchface Showcase</title>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <style>
+      body {
+        margin: 0;
+        background: #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      model-viewer {
+        width: 100vw;
+        height: 100vh;
+        background-color: #000;
+      }
+    </style>
+  </head>
+  <body>
+    <model-viewer
+      src="T-ZRO.glb"
+      alt="T-ZRO Watchface"
+      auto-rotate
+      camera-controls
+      shadow-intensity="1"
+      exposure="1"
+      ar
+      autoplay
+    >
+    </model-viewer>
+  </body>
+</html>
