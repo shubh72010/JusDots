@@ -142,7 +142,7 @@ section {
 
 .product-image-display {
     width: 100%;
-    max-width: 500px; /* Control image size */
+    max-width: 600px; /* INCREASED IMAGE SIZE */
     margin-bottom: 40px;
 }
 .product-image-display img {
@@ -311,7 +311,7 @@ footer {
         padding-bottom: 30px;
     }
     .product-image-display {
-        max-width: 400px;
+        max-width: 500px; /* ADJUSTED FOR RESPONSIVENESS */
     }
     .product-details h2 {
         font-size: 3em;
@@ -355,7 +355,7 @@ footer {
         padding-bottom: 20px;
     }
     .product-image-display {
-        max-width: 300px;
+        max-width: 350px; /* FURTHER ADJUSTED FOR SMALLER SCREENS */
     }
     .product-details h2 {
         font-size: 2.5em;
@@ -380,7 +380,7 @@ footer {
         padding: 50px 15px;
     }
     .product-image-display {
-        max-width: 250px;
+        max-width: 280px; /* SMALLER FOR VERY SMALL SCREENS */
     }
     .product-details h2 {
         font-size: 2em;
