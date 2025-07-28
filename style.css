@@ -5,17 +5,21 @@ body {
     padding: 0;
     box-sizing: border-box;
     line-height: 1.6;
-    color: #E0E0E0; /* Light gray text */
-    background-color: #000000; /* Pure black background */
+    color: #222222; /* Dark text for light background */
+    background-color: #F0F0F0; /* Light gray background */
     scroll-behavior: smooth;
     overflow-x: hidden; /* Prevent horizontal scroll */
+    /* Dotted background pattern */
+    background-image: radial-gradient(#D0D0D0 1px, transparent 1px);
+    background-size: 20px 20px; /* Size of the grid */
+    background-position: -1px -1px; /* Adjust to align dots */
 }
 
 /* Headings & Special Text */
-h1, h2, h3, h4, .logo, .widget-number {
+h1, h2, h3, h4, .logo {
     font-family: 'Orbitron', sans-serif; /* Digital/techy font for display */
     font-weight: 500;
-    color: #FFFFFF; /* White for headings */
+    color: #000000; /* Black headings for contrast */
     letter-spacing: -0.05em; /* Tighter letter spacing */
 }
 
@@ -26,7 +30,7 @@ h1 {
 }
 
 h2 {
-    font-size: 3em;
+    font-size: 2.8em;
     margin-bottom: 30px;
 }
 
@@ -35,31 +39,25 @@ h3 {
     margin-bottom: 15px;
 }
 
-h4 {
-    font-size: 1.5em;
-    font-weight: 400;
-    color: #DDDDDD;
-}
-
 p {
     font-size: 1.1em;
     font-weight: 300;
-    color: #B0B0B0; /* Slightly lighter gray for body text */
+    color: #444444; /* Slightly lighter black for body text */
 }
 
 a {
-    color: #FFFFFF;
+    color: #000000;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 a:hover {
-    color: #888888;
+    color: #666666;
 }
 
 /* Header & Navigation */
 header {
-    background-color: rgba(0, 0, 0, 0.9); /* Darker, slightly transparent */
+    background-color: rgba(240, 240, 240, 0.9); /* Light, slightly transparent */
     padding: 1.2rem 0;
     position: fixed;
     width: 100%;
@@ -68,16 +66,16 @@ header {
     z-index: 1000;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* More prominent border */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08); /* Darker border */
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1600px; /* Even wider for desktop */
+    max-width: 1600px;
     margin: 0 auto;
-    padding: 0 50px; /* More padding */
+    padding: 0 50px;
 }
 
 .nav-left, .nav-right {
@@ -87,21 +85,21 @@ nav {
 
 .nav-icon {
     font-size: 1.8em;
-    color: #FFFFFF;
+    color: #000000; /* Black icons */
     margin-right: 20px;
     cursor: pointer;
 }
 
 .logo {
-    font-size: 1.4rem; /* Smaller, more subtle logo */
+    font-size: 1.4rem;
     font-weight: 700;
-    letter-spacing: 0.2em; /* Wider spacing for NOTHING-like text */
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: #FFFFFF;
+    color: #000000; /* Black logo */
 }
 
-nav ul { /* Hidden for this design, as per screenshot */
-    display: none;
+nav ul {
+    display: none; /* Hide traditional nav links as per screenshot */
 }
 
 /* Main Content Area */
@@ -111,90 +109,68 @@ nav ul { /* Hidden for this design, as per screenshot */
 
 /* Sections */
 section {
-    padding: 100px 50px; /* Consistent padding for sections */
-    max-width: 1600px;
+    padding: 100px 50px;
+    max-width: 1200px; /* Slightly narrower content area for product display */
     margin: 0 auto;
     text-align: center;
     overflow: hidden;
 }
 
-/* T-ZRO Hero Section - Mimicking Phone (2) display */
-.t-zro-hero-section {
-    position: relative;
-    height: 100vh; /* Full viewport height */
+/* Product Showcase Section (Main Product Display) */
+.product-showcase-section {
+    background-color: transparent; /* Background handled by body */
+    padding-top: 50px; /* Less padding to bring content up */
+    padding-bottom: 50px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    background-color: #000; /* Ensure black background */
-    padding-top: 0;
+    justify-content: center;
+    min-height: calc(100vh - 80px); /* Fill remaining viewport height */
     text-align: center;
 }
 
-.t-zro-text-overlay {
-    position: relative; /* Above the image */
-    z-index: 2;
-    margin-bottom: 50px; /* Space between text and image */
+.product-header {
+    margin-bottom: 20px;
 }
-
-.t-zro-text-overlay h1 {
-    font-size: 7.5em; /* Even bigger */
-    line-height: 0.9;
-    font-weight: 600;
+.product-header .tagline {
+    font-size: 1.2em;
+    color: #666666;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
-    color: #FFFFFF;
-    -webkit-text-stroke: 1px #FFFFFF; /* Outline effect for title */
-    color: transparent; /* Make fill transparent */
-    letter-spacing: -0.08em;
+    font-weight: 500;
 }
 
-.t-zro-text-overlay h2 {
-    font-size: 2.5em;
-    font-weight: 400;
-    color: #E0E0E0;
-    margin-top: 15px;
-    letter-spacing: -0.03em;
-}
-
-.t-zro-image-container {
-    position: absolute;
-    bottom: 0; /* Position at bottom */
+.product-image-display {
     width: 100%;
-    max-width: 900px; /* Max width for the image */
-    z-index: 1; /* Below text overlay */
-    display: flex;
-    justify-content: center;
-    align-items: flex-end; /* Align image to bottom */
-    height: 80%; /* Takes up majority of the height */
+    max-width: 500px; /* Control image size */
+    margin-bottom: 40px;
 }
-
-.t-zro-main-image {
+.product-image-display img {
     width: 100%;
     height: auto;
-    object-fit: contain; /* Ensure image fits without cropping */
-    transform: translateY(10%); /* Adjust to show more of the watch, slight overlap */
-    opacity: 0.9; /* Slightly faded */
+    display: block; /* Remove extra space below image */
+    object-fit: contain;
 }
 
-.t-zro-cta-area {
-    position: absolute;
-    bottom: 50px;
-    z-index: 3; /* Above everything */
+.product-details h2 {
+    font-size: 3.5em; /* Larger product name */
+    margin-bottom: 10px;
+    letter-spacing: -0.03em;
 }
-
-.t-zro-cta-area p {
-    font-size: 1.2em;
-    margin-bottom: 25px;
-    color: #D0D0D0;
+.product-details .price {
+    font-size: 1.8em; /* Prominent price */
+    font-weight: 500;
+    color: #000000;
+    margin-bottom: 30px;
 }
 
 /* Buttons */
 .btn {
     display: inline-block;
-    background-color: #FFFFFF; /* White button */
-    color: #000000; /* Black text */
+    background-color: #222222; /* Dark button for light background */
+    color: #FFFFFF; /* White text */
     padding: 15px 40px;
-    border-radius: 50px;
+    border-radius: 5px; /* Less rounded for Nothing feel */
     font-weight: 600;
     font-size: 1.1em;
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, border-color 0.3s ease;
@@ -204,261 +180,96 @@ section {
 }
 
 .btn:hover {
-    background-color: #000000;
-    color: #FFFFFF;
-    border: 1px solid #FFFFFF;
+    background-color: #FFFFFF;
+    color: #222222;
+    border: 1px solid #222222;
     transform: translateY(-3px);
 }
 
-.shop-btn {
-    background-color: #DDDDDD;
-    color: #000000;
-    padding: 18px 50px;
-    font-size: 1.2em;
-    border-radius: 5px; /* More angular, less pill-like for shop */
-}
-
-.shop-btn:hover {
-    background-color: #000000;
-    color: #DDDDDD;
-    border: 1px solid #DDDDDD;
-}
-
-.minimal-btn {
-    background-color: #333333; /* Darker button for widgets */
+.shop-now-btn {
+    background-color: #FF5733; /* A strong accent color, like the strap. Adjust as desired */
     color: #FFFFFF;
-    padding: 10px 25px;
-    font-size: 0.9em;
+    padding: 18px 60px; /* Larger button */
+    font-size: 1.3em;
     border-radius: 5px;
-    border: 1px solid #555555;
+    font-weight: 700;
 }
 
-.minimal-btn:hover {
+.shop-now-btn:hover {
+    background-color: #E64A26; /* Darker on hover */
+    color: #FFFFFF;
+    border-color: #E64A26;
+}
+
+.primary-btn { /* For Contact Us */
+    background-color: #444444;
+    color: #FFFFFF;
+}
+.primary-btn:hover {
     background-color: #FFFFFF;
-    color: #333333;
-    border-color: #FFFFFF;
+    color: #444444;
+    border-color: #444444;
 }
 
-.accent-btn {
-    background-color: #DDDDDD; /* Light gray for updates */
+/* Other Products Section */
+.other-products-section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    background-color: #F8F8F8; /* Slightly different background for distinction */
+}
+.section-title {
+    margin-bottom: 50px;
     color: #000000;
 }
-
-.accent-btn:hover {
-    background-color: #000000;
-    color: #DDDDDD;
-    border: 1px solid #DDDDDD;
-}
-
-/* Widgets Section */
-.widgets-section {
-    background-color: #000000;
-    padding-top: 100px;
-    padding-bottom: 100px;
+.other-product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Flexible grid */
-    gap: 30px; /* Space between widgets */
-    justify-items: center; /* Center items in the grid */
-    align-items: stretch; /* Make items stretch to fill row height */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    justify-items: center;
 }
-
-.widget {
-    background-color: #1a1a1a; /* Dark gray background for widgets */
-    border-radius: 15px; /* Rounded corners */
-    padding: 30px;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Push content apart */
-    min-height: 250px; /* Minimum height for widgets */
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.widget-label {
-    font-size: 0.9em;
-    color: #888888;
-    text-transform: uppercase;
-    font-weight: 500;
-    margin-bottom: 10px;
-    letter-spacing: 0.05em;
-}
-
-.widget-number {
-    font-size: 3.5em;
-    line-height: 1;
-    font-weight: 600;
-    color: #FFFFFF;
-    font-family: 'Orbitron', sans-serif; /* Digital font for numbers */
-}
-
-/* Specific Widget Styles */
-.calendar-widget {
-    align-items: flex-start; /* Align content to the start */
-    justify-content: flex-start;
-}
-.calendar-widget .widget-number {
-    margin-top: 10px;
-}
-
-.clock-widget {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.clock-face {
-    width: 150px;
-    height: 150px;
-    border: 2px solid #FFFFFF;
-    border-radius: 50%;
-    position: relative;
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.center-dot {
-    width: 8px;
-    height: 8px;
+.other-product-item {
     background-color: #FFFFFF;
-    border-radius: 50%;
-    position: absolute;
-    z-index: 10;
-}
-
-.hour-hand, .minute-hand {
-    background-color: #FFFFFF;
-    position: absolute;
-    transform-origin: bottom center;
-    border-radius: 2px;
-}
-
-.hour-hand {
-    width: 4px;
-    height: 50px;
-    top: calc(50% - 45px); /* Adjusted top to center rotation point */
-    left: calc(50% - 2px);
-    transform: rotate(120deg); /* Example position */
-}
-
-.minute-hand {
-    width: 3px;
-    height: 70px;
-    top: calc(50% - 65px); /* Adjusted top to center rotation point */
-    left: calc(50% - 1.5px);
-    transform: rotate(30deg); /* Example position */
-}
-
-.glyph-mirror-widget {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.glyph-pattern {
-    width: 120px;
-    height: 120px;
-    background-color: #FFFFFF; /* Example for a placeholder pattern */
-    border-radius: 5px;
-    margin-bottom: 20px;
-    /* You'd use a background-image here for a real glyph pattern */
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect x="10" y="10" width="80" height="80" fill="%23000"/><circle cx="50" cy="50" r="30" fill="%23fff"/><circle cx="50" cy="50" r="15" fill="%23000"/></svg>'); /* Placeholder SVG */
-    background-size: cover;
-}
-.glyph-mirror-widget .widget-label {
-    text-align: center;
-}
-
-.text-cta-widget {
-    text-align: center;
-    justify-content: space-between;
-    padding: 40px 30px;
-}
-.text-cta-widget h3 {
-    margin-bottom: 5px;
-}
-.text-cta-widget h4 {
-    margin-bottom: 25px;
-}
-
-
-/* Product Features Section */
-.features-section {
-    background-color: #000000;
-    padding-top: 100px;
-    padding-bottom: 100px;
-}
-
-.feature-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
-    margin-top: 50px;
-}
-
-.feature-item {
-    background-color: #1a1a1a;
-    padding: 35px;
+    padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     text-align: center;
+    border: 1px solid #EEEEEE;
 }
-
-.feature-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-}
-
-.feature-item h3 {
-    color: #FFFFFF;
+.other-product-item img {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    border-radius: 5px;
     margin-bottom: 15px;
-    font-size: 1.6em;
+}
+.other-product-item h3 {
+    font-size: 1.4em;
+    margin-bottom: 5px;
+    color: #000000;
+}
+.other-product-item p {
+    font-size: 0.9em;
+    color: #666666;
 }
 
-.feature-item p {
-    color: #B0B0B0;
-    font-size: 1em;
-}
 
-/* About & Contact Section */
-.about-contact-section {
-    background-color: #000000;
-    padding-top: 100px;
-    padding-bottom: 100px;
-    display: flex;
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
-    justify-content: space-around;
-    align-items: flex-start; /* Align content at top */
-    gap: 50px; /* Space between the two columns */
-    text-align: left;
+/* About and Contact Section */
+.about-section, .contact-section {
+    background-color: transparent; /* Inherit body background */
+    padding-top: 80px;
+    padding-bottom: 80px;
 }
-
-.about-content, .contact-content {
-    flex: 1; /* Allow content to grow */
-    min-width: 300px; /* Minimum width for columns */
-    max-width: 600px;
+.about-section p, .contact-section p {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
 }
-
-.about-content h2, .contact-content h2 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
-    color: #FFFFFF;
-}
-.about-content p, .contact-content p {
-    margin-bottom: 25px;
-}
-
 
 /* Footer */
 footer {
-    background-color: #000000;
-    color: #888888;
+    background-color: #1a1a1a; /* Dark footer */
+    color: #BBBBBB;
     padding: 40px 50px;
     text-align: center;
     font-size: 0.9em;
@@ -468,7 +279,7 @@ footer {
 }
 
 .social-links a {
-    color: #888888;
+    color: #BBBBBB;
     margin: 0 15px;
     font-weight: 500;
 }
@@ -477,16 +288,8 @@ footer {
     color: #FFFFFF;
 }
 
-/* Responsive Design */
-@media (max-width: 1200px) {
-    h1 {
-        font-size: 6em;
-    }
-    .t-zro-text-overlay h1 {
-        font-size: 6.5em;
-    }
-}
 
+/* Responsive Design */
 @media (max-width: 992px) {
     nav {
         padding: 0 30px;
@@ -501,67 +304,27 @@ footer {
     section {
         padding: 80px 30px;
     }
-    .t-zro-text-overlay h1 {
-        font-size: 5em;
+    .product-showcase-section {
+        min-height: unset; /* Don't force full height on smaller screens */
+        height: auto;
+        padding-top: 30px;
+        padding-bottom: 30px;
     }
-    .t-zro-text-overlay h2 {
-        font-size: 2em;
+    .product-image-display {
+        max-width: 400px;
     }
-    .t-zro-main-image {
-        max-width: 700px;
+    .product-details h2 {
+        font-size: 3em;
     }
-    .shop-btn {
+    .product-details .price {
+        font-size: 1.5em;
+    }
+    .shop-now-btn {
         padding: 15px 40px;
         font-size: 1.1em;
     }
-    .widget {
-        min-height: 220px;
-    }
-    .about-contact-section {
-        flex-direction: column;
-        align-items: center;
-        gap: 40px;
-    }
-    .about-content, .contact-content {
-        max-width: 80%; /* Widen content blocks */
-        text-align: center;
-    }
-}
-
-@media (max-width: 768px) {
-    .nav-left .logo { /* Hide logo text for smaller screens, keep icon */
-        display: none;
-    }
-    .nav-left .nav-icon {
-        margin-right: 0; /* No margin if logo is hidden */
-    }
-    nav {
-        justify-content: space-between; /* Justify icons */
-    }
-    .t-zro-hero-section {
-        height: 80vh; /* Shorter on mobile */
-    }
-    .t-zro-text-overlay {
-        margin-bottom: 30px;
-    }
-    .t-zro-text-overlay h1 {
-        font-size: 3.5em;
-        -webkit-text-stroke: 0.5px #FFFFFF; /* Thinner outline */
-    }
-    .t-zro-text-overlay h2 {
-        font-size: 1.5em;
-    }
-    .t-zro-image-container {
-        height: 70%;
-    }
-    .t-zro-main-image {
-        max-width: 90%;
-    }
-    .t-zro-cta-area {
-        bottom: 30px;
-    }
     h2 {
-        font-size: 2em;
+        font-size: 2.2em;
     }
     h3 {
         font-size: 1.5em;
@@ -569,28 +332,43 @@ footer {
     p {
         font-size: 1em;
     }
-    .widgets-section {
-        grid-template-columns: 1fr; /* Stack widgets vertically */
-        padding: 60px 20px;
-        gap: 25px;
+    .other-product-grid {
+        grid-template-columns: 1fr;
     }
-    .widget {
-        padding: 25px;
-        min-height: unset; /* Remove min-height for stacking */
+    .about-section p, .contact-section p {
+        max-width: 90%;
     }
-    .clock-face {
-        width: 120px;
-        height: 120px;
+}
+
+@media (max-width: 768px) {
+    .nav-left .logo {
+        display: none;
     }
-    .glyph-pattern {
-        width: 100px;
-        height: 100px;
+    .nav-left .nav-icon {
+        margin-right: 0;
     }
-    .about-contact-section {
-        padding: 60px 20px;
+    nav {
+        justify-content: space-between;
     }
-    footer {
-        padding: 30px 20px;
+    .product-showcase-section {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    .product-image-display {
+        max-width: 300px;
+    }
+    .product-details h2 {
+        font-size: 2.5em;
+    }
+    .product-details .price {
+        font-size: 1.2em;
+    }
+    .shop-now-btn {
+        padding: 12px 30px;
+        font-size: 1em;
+    }
+    h2 {
+        font-size: 1.8em;
     }
 }
 
@@ -598,17 +376,23 @@ footer {
     .nav-icon {
         font-size: 1.3em;
     }
-    .t-zro-text-overlay h1 {
-        font-size: 2.8em;
+    section {
+        padding: 50px 15px;
     }
-    .t-zro-text-overlay h2 {
-        font-size: 1.2em;
+    .product-image-display {
+        max-width: 250px;
     }
-    .shop-btn {
-        padding: 12px 30px;
+    .product-details h2 {
+        font-size: 2em;
+    }
+    .product-details .price {
         font-size: 1em;
     }
-    .widget-number {
-        font-size: 3em;
+    .shop-now-btn {
+        padding: 10px 25px;
+        font-size: 0.9em;
+    }
+    footer {
+        padding: 25px 15px;
     }
 }
