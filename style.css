@@ -1,37 +1,50 @@
 /* Global Styles & Reset */
 body {
-    font-family: 'Inter', sans-serif; /* Nothing.tech-like font */
+    font-family: 'Inter', sans-serif; /* Primary text font */
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     line-height: 1.6;
-    color: #E0E0E0; /* Light gray text for dark background */
-    background-color: #1a1a1a; /* Dark background */
-    scroll-behavior: smooth; /* Smooth scrolling for navigation */
+    color: #E0E0E0; /* Light gray text */
+    background-color: #000000; /* Pure black background */
+    scroll-behavior: smooth;
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
-/* Headings */
-h1, h2, h3 {
-    font-weight: 600; /* Slightly bolder for impact */
-    margin-bottom: 20px;
-    color: #FFFFFF; /* White headings */
+/* Headings & Special Text */
+h1, h2, h3, h4, .logo, .widget-number {
+    font-family: 'Orbitron', sans-serif; /* Digital/techy font for display */
+    font-weight: 500;
+    color: #FFFFFF; /* White for headings */
+    letter-spacing: -0.05em; /* Tighter letter spacing */
 }
 
 h1 {
-    font-size: 4em; /* Larger for hero */
+    font-size: 6em; /* Very large for hero */
+    line-height: 1.0;
+    margin-bottom: 10px;
 }
 
 h2 {
-    font-size: 2.8em;
+    font-size: 3em;
+    margin-bottom: 30px;
 }
 
 h3 {
     font-size: 1.8em;
+    margin-bottom: 15px;
+}
+
+h4 {
+    font-size: 1.5em;
+    font-weight: 400;
+    color: #DDDDDD;
 }
 
 p {
     font-size: 1.1em;
-    font-weight: 300; /* Lighter weight for body text */
+    font-weight: 300;
+    color: #B0B0B0; /* Slightly lighter gray for body text */
 }
 
 a {
@@ -41,282 +54,423 @@ a {
 }
 
 a:hover {
-    color: #888888; /* Subtle hover effect */
+    color: #888888;
 }
 
-/* Navigation Bar */
+/* Header & Navigation */
 header {
-    background-color: rgba(26, 26, 26, 0.9); /* Slightly transparent dark background */
-    padding: 1rem 0;
+    background-color: rgba(0, 0, 0, 0.9); /* Darker, slightly transparent */
+    padding: 1.2rem 0;
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
     z-index: 1000;
-    backdrop-filter: blur(8px); /* Frosted glass effect */
-    -webkit-backdrop-filter: blur(8px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Subtle bottom border */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* More prominent border */
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1400px; /* Wider content area */
+    max-width: 1600px; /* Even wider for desktop */
     margin: 0 auto;
-    padding: 0 40px; /* More padding on sides */
+    padding: 0 50px; /* More padding */
+}
+
+.nav-left, .nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.nav-icon {
+    font-size: 1.8em;
+    color: #FFFFFF;
+    margin-right: 20px;
+    cursor: pointer;
 }
 
 .logo {
-    font-size: 2.2rem;
-    font-weight: 700; /* Bolder logo */
-    letter-spacing: -0.03em; /* Tighten spacing slightly */
+    font-size: 1.4rem; /* Smaller, more subtle logo */
+    font-weight: 700;
+    letter-spacing: 0.2em; /* Wider spacing for NOTHING-like text */
+    text-transform: uppercase;
     color: #FFFFFF;
 }
 
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
+nav ul { /* Hidden for this design, as per screenshot */
+    display: none;
 }
 
-nav ul li {
-    margin-left: 35px; /* More spacing */
+/* Main Content Area */
+.main-content {
+    padding-top: 80px; /* Account for fixed header */
 }
 
-nav ul li a {
-    color: #E0E0E0;
-    font-weight: 500;
-    position: relative;
-}
-
-nav ul li a::after { /* Underline effect on hover */
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 1px;
-    bottom: -5px;
-    left: 0;
-    background-color: #FFFFFF;
-    transition: width 0.3s ease-in-out;
-}
-
-nav ul li a:hover::after {
-    width: 100%;
-}
-
-/* General Section Styling */
+/* Sections */
 section {
-    padding: 120px 40px; /* More vertical padding */
-    margin-top: 0; /* Header is fixed, sections flow from top */
+    padding: 100px 50px; /* Consistent padding for sections */
+    max-width: 1600px;
+    margin: 0 auto;
     text-align: center;
-    max-width: 1400px;
-    margin-left: auto;
-    margin-right: auto;
-    overflow: hidden; /* Clear any floating elements */
+    overflow: hidden;
 }
 
-/* Hero Section */
-.hero {
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://via.placeholder.com/1920x1080/000000/FFFFFF?text=JusDots+Hero+Background') no-repeat center center/cover; /* Darker, high-contrast placeholder */
-    height: 100vh;
+/* T-ZRO Hero Section - Mimicking Phone (2) display */
+.t-zro-hero-section {
+    position: relative;
+    height: 100vh; /* Full viewport height */
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    background-color: #000; /* Ensure black background */
+    padding-top: 0;
     text-align: center;
-    color: #fff;
-    padding-top: 0; /* Remove extra top padding */
 }
 
-.hero-content {
-    max-width: 900px;
+.t-zro-text-overlay {
+    position: relative; /* Above the image */
+    z-index: 2;
+    margin-bottom: 50px; /* Space between text and image */
 }
 
-.hero-content h1 {
-    font-size: 5em; /* Even larger */
-    line-height: 1.1;
-    margin-bottom: 25px;
-    letter-spacing: -0.05em;
+.t-zro-text-overlay h1 {
+    font-size: 7.5em; /* Even bigger */
+    line-height: 0.9;
+    font-weight: 600;
+    text-transform: uppercase;
     color: #FFFFFF;
+    -webkit-text-stroke: 1px #FFFFFF; /* Outline effect for title */
+    color: transparent; /* Make fill transparent */
+    letter-spacing: -0.08em;
 }
 
-.hero-content p {
-    font-size: 1.6em;
-    margin-bottom: 40px;
+.t-zro-text-overlay h2 {
+    font-size: 2.5em;
+    font-weight: 400;
     color: #E0E0E0;
-    font-weight: 300;
+    margin-top: 15px;
+    letter-spacing: -0.03em;
+}
+
+.t-zro-image-container {
+    position: absolute;
+    bottom: 0; /* Position at bottom */
+    width: 100%;
+    max-width: 900px; /* Max width for the image */
+    z-index: 1; /* Below text overlay */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Align image to bottom */
+    height: 80%; /* Takes up majority of the height */
+}
+
+.t-zro-main-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain; /* Ensure image fits without cropping */
+    transform: translateY(10%); /* Adjust to show more of the watch, slight overlap */
+    opacity: 0.9; /* Slightly faded */
+}
+
+.t-zro-cta-area {
+    position: absolute;
+    bottom: 50px;
+    z-index: 3; /* Above everything */
+}
+
+.t-zro-cta-area p {
+    font-size: 1.2em;
+    margin-bottom: 25px;
+    color: #D0D0D0;
 }
 
 /* Buttons */
 .btn {
     display: inline-block;
     background-color: #FFFFFF; /* White button */
-    color: #1a1a1a; /* Dark text */
-    padding: 15px 35px;
-    border-radius: 50px; /* Pill shape */
-    text-decoration: none;
+    color: #000000; /* Black text */
+    padding: 15px 40px;
+    border-radius: 50px;
     font-weight: 600;
     font-size: 1.1em;
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
-    border: 1px solid transparent; /* For hover effect */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, border-color 0.3s ease;
+    border: 1px solid transparent;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 .btn:hover {
-    background-color: #1a1a1a; /* Invert colors on hover */
+    background-color: #000000;
     color: #FFFFFF;
     border: 1px solid #FFFFFF;
     transform: translateY(-3px);
 }
 
-.light-btn {
-    background-color: #2a2a2a; /* Darker button for sections */
-    color: #FFFFFF;
-    border: 1px solid #444444;
+.shop-btn {
+    background-color: #DDDDDD;
+    color: #000000;
+    padding: 18px 50px;
+    font-size: 1.2em;
+    border-radius: 5px; /* More angular, less pill-like for shop */
 }
 
-.light-btn:hover {
+.shop-btn:hover {
+    background-color: #000000;
+    color: #DDDDDD;
+    border: 1px solid #DDDDDD;
+}
+
+.minimal-btn {
+    background-color: #333333; /* Darker button for widgets */
+    color: #FFFFFF;
+    padding: 10px 25px;
+    font-size: 0.9em;
+    border-radius: 5px;
+    border: 1px solid #555555;
+}
+
+.minimal-btn:hover {
     background-color: #FFFFFF;
-    color: #1a1a1a;
-    border: 1px solid #FFFFFF;
+    color: #333333;
+    border-color: #FFFFFF;
 }
 
 .accent-btn {
-    background-color: #FF00FF; /* Example accent color, change as desired */
-    color: #1a1a1a;
-    border: 1px solid transparent;
+    background-color: #DDDDDD; /* Light gray for updates */
+    color: #000000;
 }
 
 .accent-btn:hover {
-    background-color: #1a1a1a;
-    color: #FF00FF;
-    border: 1px solid #FF00FF;
+    background-color: #000000;
+    color: #DDDDDD;
+    border: 1px solid #DDDDDD;
 }
 
+/* Widgets Section */
+.widgets-section {
+    background-color: #000000;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Flexible grid */
+    gap: 30px; /* Space between widgets */
+    justify-items: center; /* Center items in the grid */
+    align-items: stretch; /* Make items stretch to fill row height */
+}
 
-/* Product Overview Section */
-.product-overview-section {
-    background-color: #1a1a1a; /* Keep it dark */
-    padding-top: 120px;
+.widget {
+    background-color: #1a1a1a; /* Dark gray background for widgets */
+    border-radius: 15px; /* Rounded corners */
+    padding: 30px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Push content apart */
+    min-height: 250px; /* Minimum height for widgets */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.widget-label {
+    font-size: 0.9em;
+    color: #888888;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 10px;
+    letter-spacing: 0.05em;
+}
+
+.widget-number {
+    font-size: 3.5em;
+    line-height: 1;
+    font-weight: 600;
+    color: #FFFFFF;
+    font-family: 'Orbitron', sans-serif; /* Digital font for numbers */
+}
+
+/* Specific Widget Styles */
+.calendar-widget {
+    align-items: flex-start; /* Align content to the start */
+    justify-content: flex-start;
+}
+.calendar-widget .widget-number {
+    margin-top: 10px;
+}
+
+.clock-widget {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.clock-face {
+    width: 150px;
+    height: 150px;
+    border: 2px solid #FFFFFF;
+    border-radius: 50%;
+    position: relative;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.center-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 10;
+}
+
+.hour-hand, .minute-hand {
+    background-color: #FFFFFF;
+    position: absolute;
+    transform-origin: bottom center;
+    border-radius: 2px;
+}
+
+.hour-hand {
+    width: 4px;
+    height: 50px;
+    top: calc(50% - 45px); /* Adjusted top to center rotation point */
+    left: calc(50% - 2px);
+    transform: rotate(120deg); /* Example position */
+}
+
+.minute-hand {
+    width: 3px;
+    height: 70px;
+    top: calc(50% - 65px); /* Adjusted top to center rotation point */
+    left: calc(50% - 1.5px);
+    transform: rotate(30deg); /* Example position */
+}
+
+.glyph-mirror-widget {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.glyph-pattern {
+    width: 120px;
+    height: 120px;
+    background-color: #FFFFFF; /* Example for a placeholder pattern */
+    border-radius: 5px;
+    margin-bottom: 20px;
+    /* You'd use a background-image here for a real glyph pattern */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect x="10" y="10" width="80" height="80" fill="%23000"/><circle cx="50" cy="50" r="30" fill="%23fff"/><circle cx="50" cy="50" r="15" fill="%23000"/></svg>'); /* Placeholder SVG */
+    background-size: cover;
+}
+.glyph-mirror-widget .widget-label {
     text-align: center;
 }
 
-.product-content {
-    max-width: 1000px;
-    margin: 0 auto;
+.text-cta-widget {
+    text-align: center;
+    justify-content: space-between;
+    padding: 40px 30px;
 }
-
-.product-content h2 {
-    font-size: 3.5em;
-    margin-bottom: 30px;
-    letter-spacing: -0.04em;
+.text-cta-widget h3 {
+    margin-bottom: 5px;
 }
-
-.product-content p {
-    max-width: 800px;
-    margin: 0 auto 50px auto;
-}
-
-.product-image-placeholder img {
-    width: 100%;
-    max-width: 800px; /* Control image size */
-    height: auto;
-    margin-bottom: 50px;
-    border-radius: 8px; /* Slightly rounded corners */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Subtle shadow */
-}
-
-.product-tagline {
-    font-style: italic;
-    font-size: 1.4em;
-    color: #999999;
-    margin-bottom: 40px;
+.text-cta-widget h4 {
+    margin-bottom: 25px;
 }
 
 
-/* Features Section */
+/* Product Features Section */
 .features-section {
-    background-color: #0d0d0d; /* Even darker for contrast */
-    padding-top: 120px;
+    background-color: #000000;
+    padding-top: 100px;
+    padding-bottom: 100px;
 }
 
 .feature-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 60px; /* More space between features */
-    margin-top: 60px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
 }
 
 .feature-item {
-    background-color: #1a1a1a; /* Dark background for items */
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: left; /* Align text left within item */
+    background-color: #1a1a1a;
+    padding: 35px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
 }
 
 .feature-item:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
 }
 
 .feature-item h3 {
     color: #FFFFFF;
     margin-bottom: 15px;
-    letter-spacing: -0.02em;
+    font-size: 1.6em;
 }
 
 .feature-item p {
     color: #B0B0B0;
-    font-weight: 300;
+    font-size: 1em;
 }
 
-/* About Section */
-.about-section {
-    background-color: #1a1a1a;
-    padding-top: 120px;
+/* About & Contact Section */
+.about-contact-section {
+    background-color: #000000;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    justify-content: space-around;
+    align-items: flex-start; /* Align content at top */
+    gap: 50px; /* Space between the two columns */
+    text-align: left;
 }
 
-.about-section p {
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 30px;
+.about-content, .contact-content {
+    flex: 1; /* Allow content to grow */
+    min-width: 300px; /* Minimum width for columns */
+    max-width: 600px;
 }
 
-/* CTA Section */
-.cta-section {
-    background-color: #0d0d0d; /* Darker again */
-    padding-top: 120px;
-    padding-bottom: 120px;
-}
-
-.cta-section h2, .cta-section p {
+.about-content h2, .contact-content h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
     color: #FFFFFF;
 }
-
-.cta-section p {
-    margin-bottom: 40px;
+.about-content p, .contact-content p {
+    margin-bottom: 25px;
 }
+
 
 /* Footer */
 footer {
-    background-color: #0d0d0d;
+    background-color: #000000;
     color: #888888;
-    padding: 40px 20px;
+    padding: 40px 50px;
     text-align: center;
     font-size: 0.9em;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 .social-links a {
     color: #888888;
-    text-decoration: none;
     margin: 0 15px;
-    transition: color 0.3s ease;
+    font-weight: 500;
 }
 
 .social-links a:hover {
@@ -324,61 +478,90 @@ footer {
 }
 
 /* Responsive Design */
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
     h1 {
-        font-size: 3.5em;
+        font-size: 6em;
     }
-    h2 {
-        font-size: 2.2em;
+    .t-zro-text-overlay h1 {
+        font-size: 6.5em;
     }
+}
+
+@media (max-width: 992px) {
     nav {
         padding: 0 30px;
     }
-    nav ul li {
-        margin-left: 25px;
+    .logo {
+        font-size: 1.2rem;
+    }
+    .nav-icon {
+        font-size: 1.5em;
+        margin-right: 15px;
     }
     section {
-        padding: 100px 30px;
+        padding: 80px 30px;
     }
-    .hero-content h1 {
-        font-size: 4em;
+    .t-zro-text-overlay h1 {
+        font-size: 5em;
     }
-    .hero-content p {
-        font-size: 1.4em;
+    .t-zro-text-overlay h2 {
+        font-size: 2em;
     }
-    .product-content h2 {
-        font-size: 3em;
+    .t-zro-main-image {
+        max-width: 700px;
     }
-    .feature-grid {
+    .shop-btn {
+        padding: 15px 40px;
+        font-size: 1.1em;
+    }
+    .widget {
+        min-height: 220px;
+    }
+    .about-contact-section {
+        flex-direction: column;
+        align-items: center;
         gap: 40px;
+    }
+    .about-content, .contact-content {
+        max-width: 80%; /* Widen content blocks */
+        text-align: center;
     }
 }
 
 @media (max-width: 768px) {
+    .nav-left .logo { /* Hide logo text for smaller screens, keep icon */
+        display: none;
+    }
+    .nav-left .nav-icon {
+        margin-right: 0; /* No margin if logo is hidden */
+    }
     nav {
-        flex-direction: column;
-        align-items: flex-start; /* Align logo left */
+        justify-content: space-between; /* Justify icons */
     }
-    nav .logo {
-        margin-bottom: 15px;
+    .t-zro-hero-section {
+        height: 80vh; /* Shorter on mobile */
     }
-    nav ul {
-        margin-top: 0;
-        width: 100%; /* Take full width */
-        justify-content: space-around; /* Distribute items */
+    .t-zro-text-overlay {
+        margin-bottom: 30px;
     }
-    nav ul li {
-        margin: 0 5px; /* Reduce horizontal margin */
+    .t-zro-text-overlay h1 {
+        font-size: 3.5em;
+        -webkit-text-stroke: 0.5px #FFFFFF; /* Thinner outline */
     }
-    nav ul li a {
-        font-size: 0.9em;
+    .t-zro-text-overlay h2 {
+        font-size: 1.5em;
     }
-
-    h1 {
-        font-size: 2.8em;
+    .t-zro-image-container {
+        height: 70%;
+    }
+    .t-zro-main-image {
+        max-width: 90%;
+    }
+    .t-zro-cta-area {
+        bottom: 30px;
     }
     h2 {
-        font-size: 1.8em;
+        font-size: 2em;
     }
     h3 {
         font-size: 1.5em;
@@ -386,54 +569,46 @@ footer {
     p {
         font-size: 1em;
     }
-
-    section {
-        padding: 80px 20px;
+    .widgets-section {
+        grid-template-columns: 1fr; /* Stack widgets vertically */
+        padding: 60px 20px;
+        gap: 25px;
     }
-
-    .hero-content h1 {
-        font-size: 3em;
+    .widget {
+        padding: 25px;
+        min-height: unset; /* Remove min-height for stacking */
     }
-    .hero-content p {
-        font-size: 1.2em;
+    .clock-face {
+        width: 120px;
+        height: 120px;
     }
-
-    .btn {
-        padding: 12px 25px;
-        font-size: 1em;
+    .glyph-pattern {
+        width: 100px;
+        height: 100px;
     }
-
-    .product-content h2 {
-        font-size: 2.5em;
+    .about-contact-section {
+        padding: 60px 20px;
     }
-
-    .feature-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-    .feature-item {
-        padding: 30px;
+    footer {
+        padding: 30px 20px;
     }
 }
 
 @media (max-width: 480px) {
-    nav ul {
-        flex-direction: column;
-        text-align: center;
+    .nav-icon {
+        font-size: 1.3em;
     }
-    nav ul li {
-        margin: 10px 0;
+    .t-zro-text-overlay h1 {
+        font-size: 2.8em;
     }
-    .logo {
-        font-size: 1.8rem;
+    .t-zro-text-overlay h2 {
+        font-size: 1.2em;
     }
-    .hero-content h1 {
-        font-size: 2.2em;
-    }
-    .hero-content p {
+    .shop-btn {
+        padding: 12px 30px;
         font-size: 1em;
     }
-    .product-content h2 {
-        font-size: 2em;
+    .widget-number {
+        font-size: 3em;
     }
 }
