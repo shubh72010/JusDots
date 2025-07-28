@@ -1,0 +1,439 @@
+/* Global Styles & Reset */
+body {
+    font-family: 'Inter', sans-serif; /* Nothing.tech-like font */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 1.6;
+    color: #E0E0E0; /* Light gray text for dark background */
+    background-color: #1a1a1a; /* Dark background */
+    scroll-behavior: smooth; /* Smooth scrolling for navigation */
+}
+
+/* Headings */
+h1, h2, h3 {
+    font-weight: 600; /* Slightly bolder for impact */
+    margin-bottom: 20px;
+    color: #FFFFFF; /* White headings */
+}
+
+h1 {
+    font-size: 4em; /* Larger for hero */
+}
+
+h2 {
+    font-size: 2.8em;
+}
+
+h3 {
+    font-size: 1.8em;
+}
+
+p {
+    font-size: 1.1em;
+    font-weight: 300; /* Lighter weight for body text */
+}
+
+a {
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #888888; /* Subtle hover effect */
+}
+
+/* Navigation Bar */
+header {
+    background-color: rgba(26, 26, 26, 0.9); /* Slightly transparent dark background */
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    backdrop-filter: blur(8px); /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Subtle bottom border */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px; /* Wider content area */
+    margin: 0 auto;
+    padding: 0 40px; /* More padding on sides */
+}
+
+.logo {
+    font-size: 2.2rem;
+    font-weight: 700; /* Bolder logo */
+    letter-spacing: -0.03em; /* Tighten spacing slightly */
+    color: #FFFFFF;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 35px; /* More spacing */
+}
+
+nav ul li a {
+    color: #E0E0E0;
+    font-weight: 500;
+    position: relative;
+}
+
+nav ul li a::after { /* Underline effect on hover */
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -5px;
+    left: 0;
+    background-color: #FFFFFF;
+    transition: width 0.3s ease-in-out;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* General Section Styling */
+section {
+    padding: 120px 40px; /* More vertical padding */
+    margin-top: 0; /* Header is fixed, sections flow from top */
+    text-align: center;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden; /* Clear any floating elements */
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://via.placeholder.com/1920x1080/000000/FFFFFF?text=JusDots+Hero+Background') no-repeat center center/cover; /* Darker, high-contrast placeholder */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    color: #fff;
+    padding-top: 0; /* Remove extra top padding */
+}
+
+.hero-content {
+    max-width: 900px;
+}
+
+.hero-content h1 {
+    font-size: 5em; /* Even larger */
+    line-height: 1.1;
+    margin-bottom: 25px;
+    letter-spacing: -0.05em;
+    color: #FFFFFF;
+}
+
+.hero-content p {
+    font-size: 1.6em;
+    margin-bottom: 40px;
+    color: #E0E0E0;
+    font-weight: 300;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    background-color: #FFFFFF; /* White button */
+    color: #1a1a1a; /* Dark text */
+    padding: 15px 35px;
+    border-radius: 50px; /* Pill shape */
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    border: 1px solid transparent; /* For hover effect */
+}
+
+.btn:hover {
+    background-color: #1a1a1a; /* Invert colors on hover */
+    color: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    transform: translateY(-3px);
+}
+
+.light-btn {
+    background-color: #2a2a2a; /* Darker button for sections */
+    color: #FFFFFF;
+    border: 1px solid #444444;
+}
+
+.light-btn:hover {
+    background-color: #FFFFFF;
+    color: #1a1a1a;
+    border: 1px solid #FFFFFF;
+}
+
+.accent-btn {
+    background-color: #FF00FF; /* Example accent color, change as desired */
+    color: #1a1a1a;
+    border: 1px solid transparent;
+}
+
+.accent-btn:hover {
+    background-color: #1a1a1a;
+    color: #FF00FF;
+    border: 1px solid #FF00FF;
+}
+
+
+/* Product Overview Section */
+.product-overview-section {
+    background-color: #1a1a1a; /* Keep it dark */
+    padding-top: 120px;
+    text-align: center;
+}
+
+.product-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.product-content h2 {
+    font-size: 3.5em;
+    margin-bottom: 30px;
+    letter-spacing: -0.04em;
+}
+
+.product-content p {
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+}
+
+.product-image-placeholder img {
+    width: 100%;
+    max-width: 800px; /* Control image size */
+    height: auto;
+    margin-bottom: 50px;
+    border-radius: 8px; /* Slightly rounded corners */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+}
+
+.product-tagline {
+    font-style: italic;
+    font-size: 1.4em;
+    color: #999999;
+    margin-bottom: 40px;
+}
+
+
+/* Features Section */
+.features-section {
+    background-color: #0d0d0d; /* Even darker for contrast */
+    padding-top: 120px;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 60px; /* More space between features */
+    margin-top: 60px;
+}
+
+.feature-item {
+    background-color: #1a1a1a; /* Dark background for items */
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left; /* Align text left within item */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.feature-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.feature-item h3 {
+    color: #FFFFFF;
+    margin-bottom: 15px;
+    letter-spacing: -0.02em;
+}
+
+.feature-item p {
+    color: #B0B0B0;
+    font-weight: 300;
+}
+
+/* About Section */
+.about-section {
+    background-color: #1a1a1a;
+    padding-top: 120px;
+}
+
+.about-section p {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+}
+
+/* CTA Section */
+.cta-section {
+    background-color: #0d0d0d; /* Darker again */
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+
+.cta-section h2, .cta-section p {
+    color: #FFFFFF;
+}
+
+.cta-section p {
+    margin-bottom: 40px;
+}
+
+/* Footer */
+footer {
+    background-color: #0d0d0d;
+    color: #888888;
+    padding: 40px 20px;
+    text-align: center;
+    font-size: 0.9em;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.social-links a {
+    color: #888888;
+    text-decoration: none;
+    margin: 0 15px;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #FFFFFF;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    h1 {
+        font-size: 3.5em;
+    }
+    h2 {
+        font-size: 2.2em;
+    }
+    nav {
+        padding: 0 30px;
+    }
+    nav ul li {
+        margin-left: 25px;
+    }
+    section {
+        padding: 100px 30px;
+    }
+    .hero-content h1 {
+        font-size: 4em;
+    }
+    .hero-content p {
+        font-size: 1.4em;
+    }
+    .product-content h2 {
+        font-size: 3em;
+    }
+    .feature-grid {
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start; /* Align logo left */
+    }
+    nav .logo {
+        margin-bottom: 15px;
+    }
+    nav ul {
+        margin-top: 0;
+        width: 100%; /* Take full width */
+        justify-content: space-around; /* Distribute items */
+    }
+    nav ul li {
+        margin: 0 5px; /* Reduce horizontal margin */
+    }
+    nav ul li a {
+        font-size: 0.9em;
+    }
+
+    h1 {
+        font-size: 2.8em;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    h3 {
+        font-size: 1.5em;
+    }
+    p {
+        font-size: 1em;
+    }
+
+    section {
+        padding: 80px 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 3em;
+    }
+    .hero-content p {
+        font-size: 1.2em;
+    }
+
+    .btn {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+
+    .product-content h2 {
+        font-size: 2.5em;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .feature-item {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+    nav ul li {
+        margin: 10px 0;
+    }
+    .logo {
+        font-size: 1.8rem;
+    }
+    .hero-content h1 {
+        font-size: 2.2em;
+    }
+    .hero-content p {
+        font-size: 1em;
+    }
+    .product-content h2 {
+        font-size: 2em;
+    }
+}
