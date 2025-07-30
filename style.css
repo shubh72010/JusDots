@@ -57,15 +57,16 @@ a:hover {
 
 /* Header & Navigation */
 header {
-    background-color: rgba(240, 240, 240, 0.9); /* Light, slightly transparent */
+    /* Frosted UI effect for header */
+    background-color: rgba(240, 240, 240, 0.7); /* Slightly transparent light background */
+    backdrop-filter: blur(15px); /* Stronger blur effect */
+    -webkit-backdrop-filter: blur(15px); /* Safari compatibility */
     padding: 1.2rem 0;
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
     z-index: 1000;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(0, 0, 0, 0.08); /* Darker border */
 }
 
@@ -109,7 +110,10 @@ nav ul {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.95); /* Semi-transparent dark background */
+    /* Frosted UI effect for overlay */
+    background-color: rgba(0, 0, 0, 0.85); /* More opaque black background */
+    backdrop-filter: blur(20px); /* Very strong blur for full screen */
+    -webkit-backdrop-filter: blur(20px); /* Safari compatibility */
     z-index: 1001; /* Above header */
     display: flex;
     flex-direction: column;
@@ -280,43 +284,6 @@ section {
 /* If you removed this section from HTML, you can entirely delete this block too */
 .other-products-section {
     display: none; /* Temporarily hide if you want to keep the HTML but not display */
-    /* padding-top: 80px;
-    padding-bottom: 80px;
-    background-color: #F8F8F8;
-    .section-title {
-        margin-bottom: 50px;
-        color: #000000;
-    }
-    .other-product-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 30px;
-        justify-items: center;
-    }
-    .other-product-item {
-        background-color: #FFFFFF;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        text-align: center;
-        border: 1px solid #EEEEEE;
-    }
-    .other-product-item img {
-        width: 100%;
-        max-width: 250px;
-        height: auto;
-        border-radius: 5px;
-        margin-bottom: 15px;
-    }
-    .other-product-item h3 {
-        font-size: 1.4em;
-        margin-bottom: 5px;
-        color: #000000;
-    }
-    .other-product-item p {
-        font-size: 0.9em;
-        color: #666666;
-    } */
 }
 
 
