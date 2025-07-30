@@ -11,11 +11,23 @@
     <header>
         <nav>
             <div class="nav-left">
-                <span class="nav-icon">&#9776;</span> <div class="logo">JUSDOTS (R)</div> </div>
+                <span class="nav-icon hamburger-icon" id="hamburgerMenu">&#9776;</span> <div class="logo">JUSDOTS (R)</div>
+            </div>
             <div class="nav-right">
                 <span class="nav-icon">&#128717;</span> </div>
         </nav>
     </header>
+
+    <div id="mobileNavOverlay" class="mobile-nav-overlay">
+        <div class="mobile-nav-header">
+            <span class="nav-icon close-icon" id="closeMenu">&times;</span>
+        </div>
+        <ul class="mobile-nav-links">
+            <li><a href="#t-zro-showcase">T-ZRO</a></li>
+            <li><a href="#about-us">About Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+            </ul>
+    </div>
 
     <main class="main-content">
         <section id="t-zro-showcase" class="product-showcase-section">
@@ -27,18 +39,9 @@
             </div>
             <div class="product-details">
                 <h2>JusDots T-ZRO</h2>
-                <p class="price">From ₹9,999</p> <a href="TZRO.HTML" class="btn shop-now-btn">PREORDER</a> </div>
-        </section>
-
-        <section id="other-products" class="other-products-section">
-            <h2 class="section-title">Explore JusDots Ecosystem</h2>
-            <div class="other-product-grid">
-                <div class="other-product-item">
-                    <img src="https://via.placeholder.com/300x300/F0F0F0/222222?text=JusDots+Accessory" alt="JusDots Accessory">
-                    <h3>JusDots Buds</h3>
-                    <p>Immersive Audio.</p>
-                </div>
-                </div>
+                <p class="price">From ₹9,999</p>
+                <a href="TZRO.HTML" class="btn shop-now-btn">PREORDER</a>
+            </div>
         </section>
 
         <section id="about-us" class="about-section">
@@ -59,5 +62,30 @@
             <a href="#">INSTAGRAM</a> | <a href="#">X</a> | <a href="#">LINKEDIN</a>
         </div>
     </footer>
+
+    <script>
+        // JavaScript for Hamburger Menu
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburgerMenu = document.getElementById('hamburgerMenu');
+            const closeMenu = document.getElementById('closeMenu');
+            const mobileNavOverlay = document.getElementById('mobileNavOverlay');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a');
+
+            hamburgerMenu.addEventListener('click', function() {
+                mobileNavOverlay.classList.add('active');
+            });
+
+            closeMenu.addEventListener('click', function() {
+                mobileNavOverlay.classList.remove('active');
+            });
+
+            // Close menu when a link is clicked (for smooth scrolling)
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileNavOverlay.classList.remove('active');
+                });
+            });
+        });
+    </script>
 </body>
 </html>
