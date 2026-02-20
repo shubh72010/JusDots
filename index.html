@@ -4,19 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JusDots — We build things that feel alive</title>
+    <title>JusDots | We build things that feel alive</title>
     <meta name="description"
         content="JusDots crafts Android apps with obsessive attention to feel. DotNotes, JusBrowse, Mulberry, and more.">
     <link rel="stylesheet" href="styles.css">
+    <link rel="preload" href="logo.png" as="image">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@400;500;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;700;800;900&display=swap"
         rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
-    <script src="https://unpkg.com/ogl/dist/index.umd.js"></script>
     <script src="script.js" defer></script>
     <link rel="icon" type="image/png" href="logo.png">
 </head>
@@ -35,19 +35,14 @@
     <div class="cursor" id="cursor"></div>
     <div class="cursor-trail" id="cursorTrail"></div>
 
-    <!-- Background System -->
-    <div class="bg-canvas">
-        <div class="grainient-container"></div>
-        <div class="bg-grid"></div>
-        <div class="bg-glow"></div>
-        <div class="bg-glow-2"></div>
-    </div>
+    <!-- Grain Overlay -->
     <div class="noise"></div>
 
+    <!-- Navigation -->
     <div class="staggered-menu-wrapper fixed-wrapper" data-position="right">
         <div class="sm-prelayers" aria-hidden="true">
-            <div class="sm-prelayer" style="background: #9d50bb"></div>
-            <div class="sm-prelayer" style="background: #0082c8"></div>
+            <div class="sm-prelayer" style="background: #0a0a0a"></div>
+            <div class="sm-prelayer" style="background: #111"></div>
         </div>
 
         <header class="staggered-menu-header">
@@ -114,17 +109,17 @@
     </div>
 
     <main>
+        <!-- Hero -->
         <section id="hero" class="hero">
             <div class="hero-content">
-                <p class="hero-eyebrow" data-reveal>random kids obsessed with nerd stuff</p>
-                <h1 class="shimmer-text">
+                <p class="hero-eyebrow" data-reveal>Random kids obsessed with nerd stuff</p>
+                <h1>
                     <span class="hero-line" data-reveal>We don't</span>
                     <span class="hero-line" data-reveal>ship features.</span>
-                    <span class="hero-line" data-reveal>We ship feelings.</span>
+                    <span class="hero-line" data-reveal>We ship <em>feelings.</em></span>
                 </h1>
                 <p class="hero-sub" data-reveal>Apps aren't just tools. They're <em>experiences</em>. Every pixel, every
-                    animation,
-                    every micro-interaction — crafted to make you go <strong>"woah."</strong></p>
+                    animation, every micro-interaction — crafted to make you go <strong>"woah."</strong></p>
             </div>
             <div class="scroll-hint">
                 <span class="scroll-hint-text">Scroll to explore</span>
@@ -132,7 +127,7 @@
             </div>
         </section>
 
-        <!-- Marquee Ticker -->
+        <!-- Marquee -->
         <div class="marquee-strip">
             <div class="marquee-track">
                 <span>DotNotes</span><span class="marquee-dot">●</span>
@@ -154,9 +149,10 @@
             </div>
         </div>
 
-        <!-- DotNotes Section -->
-        <section id="dotnotes" class="product-section dotnotes">
+        <!-- 01 / DotNotes -->
+        <section id="dotnotes" class="product-section layout-split dotnotes">
             <div class="product-info">
+                <div class="section-number">01</div>
                 <span class="badge">✦ Notes, reimagined</span>
                 <h2>DotNotes</h2>
                 <p class="product-tagline">Notes that feel like <em>butter</em>.</p>
@@ -171,10 +167,14 @@
             </div>
             <div class="product-visual">
                 <div class="bounceCardsContainer">
-                    <div class="card card-0"><img class="image" src="AppScreenshots/DN1.webp" alt="DotNotes 1"></div>
-                    <div class="card card-1"><img class="image" src="AppScreenshots/DN2.webp" alt="DotNotes 2"></div>
-                    <div class="card card-2"><img class="image" src="AppScreenshots/DN3.webp" alt="DotNotes 3"></div>
-                    <div class="card card-3"><img class="image" src="AppScreenshots/DN4.webp" alt="DotNotes 4"></div>
+                    <div class="card card-0"><img class="image" src="AppScreenshots/DN1.webp" alt="DotNotes 1"
+                            loading="lazy" decoding="async"></div>
+                    <div class="card card-1"><img class="image" src="AppScreenshots/DN2.webp" alt="DotNotes 2"
+                            loading="lazy" decoding="async"></div>
+                    <div class="card card-2"><img class="image" src="AppScreenshots/DN3.webp" alt="DotNotes 3"
+                            loading="lazy" decoding="async"></div>
+                    <div class="card card-3"><img class="image" src="AppScreenshots/DN4.webp" alt="DotNotes 4"
+                            loading="lazy" decoding="async"></div>
                 </div>
             </div>
         </section>
@@ -182,17 +182,10 @@
         <!-- Divider -->
         <div class="section-divider"></div>
 
-        <!-- JusBrowse Section -->
-        <section id="jusbrowse" class="product-section jusbrowse">
-            <div class="product-visual">
-                <div class="app-image-container">
-                    <div class="tilted-card-inner" data-caption="JusBrowse UI">
-                        <img src="AppScreenshots/JusBrowse.png" alt="JusBrowse Screenshot" class="product-img">
-                    </div>
-                    <div class="tilted-card-caption"></div>
-                </div>
-            </div>
+        <!-- 02 / JusBrowse -->
+        <section id="jusbrowse" class="product-section layout-split-reverse jusbrowse">
             <div class="product-info">
+                <div class="section-number">02</div>
                 <span class="badge">🛡 Your data, your rules</span>
                 <h2>JusBrowse</h2>
                 <p class="product-tagline">The browser that lies <em>for</em> you.</p>
@@ -205,21 +198,31 @@
                     <li>Folian — disable JS on any site</li>
                 </ul>
             </div>
+            <div class="product-visual">
+                <div class="app-image-container">
+                    <div class="tilted-card-inner" data-caption="JusBrowse UI">
+                        <img src="AppScreenshots/JusBrowse.png" alt="JusBrowse Screenshot" class="product-img"
+                            loading="lazy" decoding="async">
+                    </div>
+                    <div class="tilted-card-caption"></div>
+                </div>
+            </div>
         </section>
 
-        <!-- Quiet Moment 2 -->
-        <section class="interstitial interstitial-alt">
+        <!-- Quiet Moment -->
+        <section class="interstitial">
             <p class="interstitial-text">What if software<br>could make you <em>feel</em> something?</p>
             <span class="interstitial-caption">— the question that started everything</span>
         </section>
 
-        <!-- Mulberry Section -->
-        <section id="mulberry" class="product-section mulberry">
+        <!-- 03 / Mulberry -->
+        <section id="mulberry" class="product-section layout-split mulberry">
             <div class="product-info">
+                <div class="section-number">03</div>
                 <span class="badge">🤖 AI does the browsing</span>
                 <h2>Mulberry</h2>
                 <p class="product-tagline">You ask. It <em>browses</em>.</p>
-                <p>The first browser where the AI isn't an assistant — it's the pilot. Give it a task. It navigates,
+                <p>The browser where the AI isn't an assistant — it's the pilot. Give it a task. It navigates,
                     clicks, reads, and reports back. You just watch.</p>
                 <ul class="feature-list">
                     <li>Autonomous multi-step web tasks</li>
@@ -231,7 +234,8 @@
             <div class="product-visual">
                 <div class="app-image-container">
                     <div class="tilted-card-inner" data-caption="Mulberry Interface">
-                        <img src="AppScreenshots/Mulberry.webp" alt="Mulberry Screenshot" class="product-img">
+                        <img src="AppScreenshots/Mulberry.webp" alt="Mulberry Screenshot" class="product-img"
+                            loading="lazy" decoding="async">
                     </div>
                     <div class="tilted-card-caption"></div>
                 </div>
@@ -241,73 +245,67 @@
         <!-- Divider -->
         <div class="section-divider"></div>
 
-        <!-- DotBuild Section -->
-        <section id="dotbuild" class="product-section dotbuild">
-            <div class="product-info">
+        <!-- 04 / DotBuild -->
+        <section id="dotbuild" class="product-section dotbuild-banner">
+            <div class="dotbuild-inner">
                 <span class="badge">🔮 Coming soon</span>
-                <h2>DotBuild</h2>
-                <p class="product-tagline">From idea to <em>existence</em>.</p>
-                <p>What if building an app was as easy as describing it? DotBuild takes your prompts and turns them into
-                    live, deployed projects. No boilerplate. No friction.</p>
-                <ul class="feature-list">
-                    <li>Prompt → Running app, no code</li>
-                    <li>Your API key, your power</li>
-                    <li>Real-time preview & deployment</li>
-                    <li>Visual component assembly</li>
-                </ul>
-            </div>
-            <div class="product-visual">
-                <div class="coming-soon-visual">
-                    <div class="pulse-ring"></div>
-                    <div class="pulse-ring delay-1"></div>
-                    <div class="pulse-ring delay-2"></div>
-                    <span class="coming-soon-icon">🔮</span>
+                <h2 class="massive-text">DOTBUILD</h2>
+                <div class="marquee-strip banner-marquee">
+                    <div class="marquee-track">
+                        <span>ZERO CODE</span><span class="marquee-dot">✦</span>
+                        <span>PURE SPEED</span><span class="marquee-dot">✦</span>
+                        <span>PROMPT TO PRODUCTION</span><span class="marquee-dot">✦</span>
+                        <span>ZERO CODE</span><span class="marquee-dot">✦</span>
+                        <span>PURE SPEED</span><span class="marquee-dot">✦</span>
+                        <span>PROMPT TO PROD</span><span class="marquee-dot">✦</span>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Quiet Moment 3 -->
+        <!-- Quiet Moment -->
         <section class="interstitial interstitial-short">
-            <p class="interstitial-label">The people</p>
+            <p class="interstitial-label">MEET THE CREW</p>
         </section>
 
-        <!-- Meet the Team -->
+        <!-- Team -->
         <section id="team" class="team-section">
             <div class="team-header">
-                <span class="badge">👥 The humans behind the dots</span>
-                <h2>Meet the Team</h2>
-                <p class="team-subtitle">Small team. Big obsessions. Every pixel is personal.</p>
+                <h2>"Bunch of tech addicts"</h2>
             </div>
             <div class="team-grid">
-                <a href="https://shubh72010.github.io" target="_blank" rel="noopener" class="team-card">
-                    <div class="team-avatar">
-                        <img src="logo.png" alt="Shubh" class="avatar-img">
+                <a href="https://shubh72010.github.io/portfolio/" target="_blank" rel="noopener" class="driver-card">
+                    <div class="driver-number">01</div>
+                    <div class="driver-avatar">
+                        <img src="flakesofsmth.png" alt="flakesofsmth" class="avatar-img" loading="lazy" decoding="async">
                     </div>
-                    <h3 class="team-name">Shubh</h3>
-                    <p class="team-role">Founder & Lead Dev</p>
-                    <p class="team-bio">Android nerd. Obsessed with making UI feel like butter. Builds things that
-                        shouldn't exist yet.</p>
-                    <span class="team-link-text">View Portfolio ↗</span>
+                    <div class="driver-info">
+                        <h3 class="driver-name">FLAKESOFSMTH</h3>
+                        <p class="driver-role">HEAD</p>
+                    </div>
+                    <div class="driver-hover-stat">VIEW STATS ↗</div>
                 </a>
-                <a href="#" target="_blank" rel="noopener" class="team-card">
-                    <div class="team-avatar">
-                        <img src="logo.png" alt="Member 2" class="avatar-img">
+                <a href="#" target="_blank" rel="noopener" class="driver-card">
+                    <div class="driver-number">02</div>
+                    <div class="driver-avatar">
+                        <img src="logo.png" alt="Member 2" class="avatar-img" loading="lazy" decoding="async">
                     </div>
-                    <h3 class="team-name">Member 2</h3>
-                    <p class="team-role">Design & UX</p>
-                    <p class="team-bio">Turns chaos into clean interfaces. Believes every interaction should feel
-                        intentional.</p>
-                    <span class="team-link-text">View Portfolio ↗</span>
+                    <div class="driver-info">
+                        <h3 class="driver-name">37bgxrpg</h3>
+                        <p class="driver-role">talented fella</p>
+                    </div>
+                    <div class="driver-hover-stat">VIEW STATS ↗</div>
                 </a>
-                <a href="#" target="_blank" rel="noopener" class="team-card">
-                    <div class="team-avatar">
-                        <img src="logo.png" alt="Member 3" class="avatar-img">
+                <a href="#" target="_blank" rel="noopener" class="driver-card">
+                    <div class="driver-number">03</div>
+                    <div class="driver-avatar">
+                        <img src="logo.png" alt="Member 3" class="avatar-img" loading="lazy" decoding="async">
                     </div>
-                    <h3 class="team-name">Member 3</h3>
-                    <p class="team-role">Backend & AI</p>
-                    <p class="team-bio">Makes the invisible parts work. If it's fast and reliable, they probably touched
-                        it.</p>
-                    <span class="team-link-text">View Portfolio ↗</span>
+                    <div class="driver-info">
+                        <h3 class="driver-name">Space</h3>
+                        <p class="driver-role">tester</p>
+                    </div>
+                    <div class="driver-hover-stat">VIEW STATS ↗</div>
                 </a>
             </div>
         </section>
@@ -334,16 +332,13 @@
                 </div>
                 <p class="footer-philosophy">"Software should make you feel something."</p>
                 <div class="footer-links">
-                    <div class="magnetic-wrap"><a href="#">Twitter</a></div>
-                    <div class="magnetic-wrap"><a href="#">GitHub</a></div>
-                    <div class="magnetic-wrap"><a href="#">Discord</a></div>
+                    <div class="magnetic-wrap"><a href="https://www.instagram.com/zeta.designers/">Instagram</a></div>
+                    <div class="magnetic-wrap"><a href="https://discord.gg/8VDJB7HztQ">Discord (ZETA)</a></div>
                 </div>
                 <p class="footer-copy">&copy; 2026 JusDots. Handcrafted with obsession.</p>
             </div>
         </footer>
     </main>
-
-    <script src="script.js"></script>
 </body>
 
 </html>
