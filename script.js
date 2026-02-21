@@ -5,13 +5,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Lenis Smooth Scroll ---
     let lenis;
-    if (window.Lenis) {
+    const isDesktopChromium = /Chrome|Chromium|Edg\//.test(navigator.userAgent) && !/Mobile/i.test(navigator.userAgent);
+
+    if (window.Lenis && !isDesktopChromium) {
         lenis = new Lenis({
-            duration: 1.1,
-            easing: (t) => 1 - Math.pow(1 - t, 3),  // cubic ease-out, much snappier
-            wheelMultiplier: 1.0,
-            touchMultiplier: 1.5,
-            lerp: 0.1,              // how much it catches up per frame — higher = snappier
+            duration: 0.85,
+            easing: (t) => 1 - Math.pow(1 - t, 3),
+            wheelMultiplier: 0.95,
+            touchMultiplier: 1.2,
             infinite: false,
         });
 
@@ -19,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
             lenis.raf(time * 1000);
         });
 
-        gsap.ticker.lagSmoothing(60, 1000);
+        gsap.ticker.lagSmoothing(0);
 
         if (window.ScrollTrigger) {
             lenis.on('scroll', ScrollTrigger.update);

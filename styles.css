@@ -52,6 +52,11 @@ body {
     cursor: none;
 }
 
+main {
+    width: min(1400px, 100%);
+    margin: 0 auto;
+}
+
 ::selection {
     background: var(--accent);
     color: #fff;
@@ -442,7 +447,8 @@ a {
     text-align: center;
     padding: 0 var(--section-pad-x);
     position: relative;
-    width: 100%;
+    width: min(1240px, 100%);
+    margin: 0 auto;
 }
 
 .hero-content {
@@ -582,6 +588,8 @@ a {
     flex-direction: column;
     gap: 5rem;
     position: relative;
+    width: min(1240px, 100%);
+    margin: 0 auto;
 }
 
 /* Elegant top border with gradient fade */
@@ -715,8 +723,8 @@ a {
 /* Product Section Layout Variants */
 .product-section.layout-split {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8rem;
+    grid-template-columns: minmax(280px, 1.05fr) minmax(280px, 0.95fr);
+    gap: clamp(2rem, 5vw, 6rem);
     align-items: center;
 }
 
@@ -745,8 +753,8 @@ a {
 
 .product-section.layout-split-reverse {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8rem;
+    grid-template-columns: minmax(280px, 1.05fr) minmax(280px, 0.95fr);
+    gap: clamp(2rem, 5vw, 6rem);
     align-items: center;
 }
 
@@ -762,6 +770,9 @@ a {
     overflow: hidden;
     border-radius: 12px;
     border: 1px solid var(--border);
+    max-width: 580px;
+    width: 100%;
+    justify-self: center;
 }
 
 .image-reveal {
@@ -934,6 +945,8 @@ a {
     padding: var(--section-pad-y) var(--section-pad-x);
     text-align: center;
     position: relative;
+    width: min(1240px, 100%);
+    margin: 0 auto;
 }
 
 /* Top & bottom gradient borders */
@@ -1097,6 +1110,8 @@ a {
     padding: var(--section-pad-y) var(--section-pad-x);
     text-align: center;
     position: relative;
+    width: min(1240px, 100%);
+    margin: 0 auto;
 }
 
 .team-section::before {
@@ -1257,6 +1272,8 @@ a {
     text-align: center;
     position: relative;
     overflow: hidden;
+    width: min(1240px, 100%);
+    margin: 0 auto;
 }
 
 .main-footer::before {
@@ -1381,8 +1398,8 @@ a {
    DotBuild Banner (Brutalist)
    ============================ */
 .dotbuild-banner {
-    min-height: 50vh;
-    padding: 0;
+    min-height: 62vh;
+    padding: 3rem 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1413,34 +1430,44 @@ a {
 
 .massive-text {
     font-family: var(--font-serif);
-    font-size: clamp(2.5rem, 15vw, 15rem);
+    font-size: clamp(2.8rem, 14vw, 12rem);
     font-weight: 900;
     letter-spacing: -4px;
     line-height: 0.85;
     margin: 0;
-    color: #000;
-    text-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+    color: #111;
+    -webkit-text-stroke: 1.5px #fff;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
     position: relative;
     z-index: 5;
+}
+
+.massive-text::after {
+    content: '';
+    position: absolute;
+    inset: 46% -4% -6% -4%;
+    background: linear-gradient(to top, rgba(213, 255, 0, 0.98), rgba(213, 255, 0, 0));
+    z-index: -1;
 }
 
 .banner-marquee {
     width: 100%;
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%) rotate(-3deg);
-    background: #000;
-    padding: 1.5rem 0;
-    border-top: 4px solid var(--text-primary);
-    border-bottom: 4px solid var(--text-primary);
-    z-index: -1;
+    top: 62%;
+    transform: translateY(-50%) rotate(-2deg);
+    background: #050505;
+    padding: 1rem 0;
+    border-top: 2px solid rgba(255, 255, 255, 0.8);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.8);
+    z-index: 1;
+    opacity: 0.92;
 }
 
 .banner-marquee .marquee-track span {
     color: var(--accent);
     font-family: var(--font-serif);
     font-weight: 800;
-    font-size: 3rem;
+    font-size: clamp(1.25rem, 3.4vw, 2rem);
     letter-spacing: 2px;
 }
 
@@ -1449,11 +1476,20 @@ a {
    ============================ */
 @media (max-width: 1000px) {
 
+    main,
+    .hero,
+    .product-section,
+    .interstitial,
+    .team-section,
+    .main-footer {
+        width: 100%;
+    }
+
     .product-section.layout-split,
     .product-section.layout-split-reverse {
         grid-template-columns: 1fr;
         padding: 10vh 5%;
-        text-align: center;
+        text-align: left;
     }
 
     .product-section.layout-split-reverse .product-visual {
@@ -1462,6 +1498,19 @@ a {
 
     .product-section {
         padding: 5vh 5%;
+    }
+
+    .product-info {
+        max-width: 640px;
+        margin: 0 auto;
+    }
+
+    .product-info>p:not(.product-tagline) {
+        padding-left: 1.2rem;
+    }
+
+    .feature-list li {
+        justify-content: flex-start;
     }
 
     .hero-content h1 {
