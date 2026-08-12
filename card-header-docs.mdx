@@ -1,0 +1,60 @@
+export const title = "Card header components";
+export const description =
+  "Powerful and customizable React card header components built for modern applications and websites. These card headers are built using React Aria and styled with Tailwind CSS.";
+
+import * as Demos from "@/components/application/card-headers/card-headers.demo.tsx";
+
+<PreviewAndCode title="Card header example" isPublic={false}>
+  <ResizablePreview enable id="preview" className="min-h-[320px]">
+    <ResponsiveIframe
+      src="/react/iframe/card-headers/card-header-with-badge"
+      height={347}
+      className="rounded-[20px] ring-1 ring-secondary bg-primary"
+    />
+  </ResizablePreview>
+  <TabPanel id="code" className="min-h-(--preview-height)">
+    <ComponentCode component="card-headers/CardHeaderWithBadge" />
+  </TabPanel>
+</PreviewAndCode>
+
+<Divider />
+
+## Installation
+
+These card header components do not require any installation, just copy and paste into your project once you've set up Untitled UI. Check out our [installation guide](/docs/installation) to get started.
+
+<Divider />
+
+## Card header examples
+
+Below are examples and variations of this card header component:
+
+### Card header with badge {{ tocOnly:true }}
+
+<PreviewAndCode title="Card header with badge" isPublic={false}>
+  <ResizablePreview enable id="preview" className="min-h-[320px]">
+    <ResponsiveIframe
+      src="/react/iframe/card-headers/card-header-with-badge"
+      height={347}
+      className="rounded-[20px] ring-1 ring-secondary bg-primary"
+    />
+  </ResizablePreview>
+  <TabPanel id="code" className="min-h-(--preview-height)">
+    <ComponentCode component="card-headers/CardHeaderWithBadge" />
+  </TabPanel>
+</PreviewAndCode>
+
+### Card header with avatar and badge {{ tocOnly:true }}
+
+<PreviewAndCode title="Card header with avatar and badge" isPublic={false}>
+  <ResizablePreview enable id="preview" className="min-h-[320px]">
+    <ResponsiveIframe
+      src="/react/iframe/card-headers/card-header-avatar-with-badge"
+      height={353}
+      className="rounded-[20px] ring-1 ring-secondary bg-primary"
+    />
+  </ResizablePreview>
+  <TabPanel id="code" className="min-h-(--preview-height)">
+    <ComponentCode component="card-headers/CardHeaderAvatarWithBadge" />
+  </TabPanel>
+</PreviewAndCode>
