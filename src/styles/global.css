@@ -58,6 +58,15 @@ html {
   letter-spacing: -0.045em;
   line-height: 0.92;
   font-weight: 900;
+  overflow-wrap: break-word;
+}
+
+/* hero scales with viewport, never clips */
+.display-fluid {
+  letter-spacing: -0.045em;
+  line-height: 0.92;
+  font-weight: 900;
+  font-size: clamp(3rem, 14.5vw, 9rem);
 }
 
 .serif-accent {

@@ -13,8 +13,8 @@ const links = [
       <img src={`${base}icons/jusdots.png`} alt="JusDots" class="size-6 rounded-full" />
       JUSDOTS
     </a>
-    {links.map((l) => (
-      <a href={`${base}${l.href.slice(1)}`} class="rounded-full px-3.5 py-1.5 text-sm text-neutral-700 transition-colors hover:bg-black/5 hover:text-black">{l.label}</a>
+    {links.map((l, i) => (
+      <a href={`${base}${l.href.slice(1)}`} class:list={['rounded-full px-3.5 py-1.5 text-sm text-neutral-700 transition-colors hover:bg-black/5 hover:text-black', i > 0 && 'hidden min-[520px]:inline']}>{l.label}</a>
     ))}
     <a href="https://github.com/shubh72010" class="ml-2 rounded-full bg-[#141414] px-4 py-1.5 text-sm font-semibold text-white">GitHub</a>
   </nav>
