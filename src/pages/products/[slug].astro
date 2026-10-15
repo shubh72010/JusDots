@@ -1,0 +1,55 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import SpecGrid from '../../components/SpecGrid.astro';
+import PillDownload from '../../components/PillDownload.astro';
+import { getCollection, render } from 'astro:content';
+import { stars } from '../../data/meta';
+
+export async function getStaticPaths() {
+  const products = await getCollection('products');
+  return products.map((p) => ({ params: { slug: p.id }, props: { product: p } }));
+}
+
+const { product } = Astro.props;
+const { Content } = await render(product);
+const d = product.data;
+const base = import.meta.env.BASE_URL;
+---
+
+<SiteLayout title={`${d.title} — JusDots`} description={d.description}>
+  <article class="px-6 pt-32 pb-32">
+    <div class="mx-auto max-w-6xl">
+      <div class="flex items-start gap-6">
+        {d.icon && <img src={`${base}${d.icon.slice(1)}`} alt="" class="chunky mt-3 size-20 shrink-0 border border-black/10" />}
+        <div>
+          <p class="spec-label mb-5">{d.kind} · {d.status} · ★ {stars[product.id] ?? '–'}</p>
+          <h1 class="display text-6xl md:text-7xl">{d.title}</h1>
+        </div>
+      </div>
+      <p class="serif-accent mt-8 max-w-2xl text-2xl text-neutral-600">{d.tagline}</p>
+      <div class="mt-12 grid gap-10 md:grid-cols-[1fr_1.1fr]">
+        <div>
+          <h2 class="spec-label mb-3">Specs</h2>
+          <SpecGrid version={d.version} platforms={d.platforms} size={d.size} license={d.license} updated={d.updated} />
+          <div class="rich mt-10 max-w-none"><Content /></div>
+        </div>
+        <div>
+          {d.screenshots.length > 0 ? (
+            <div class:list={['grid gap-6', d.screenshots.length > 1 ? 'grid-cols-2' : 'grid-cols-1']}>
+              {d.screenshots.slice(0, 4).map((s) => {
+                const wide = s.includes('banner') || s.includes('calc');
+                return <img src={`${base}${s.slice(1)}`} alt={`${d.title} screenshot`} loading="lazy" class:list={['w-full object-cover', wide ? 'chunky border hairline' : 'phone']} />;
+              })}
+            </div>
+          ) : (
+            <div class="chunky border hairline bg-[#141414] p-10 text-[#f5f4f2]">
+              <p class="spec-label !text-neutral-400">{d.kind}</p>
+              <p class="display mt-4 text-5xl">{d.title}</p>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  </article>
+  <PillDownload version={d.version} platforms={d.platforms} repo={d.repo} />
+</SiteLayout>

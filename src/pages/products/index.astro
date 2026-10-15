@@ -1,0 +1,15 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import ProductIndex from '../../components/ProductIndex.astro';
+import { getCollection } from 'astro:content';
+
+const products = (await getCollection('products')).sort((a, b) => a.data.title.localeCompare(b.data.title));
+---
+
+<SiteLayout title="Products — JusDots" description="Every JusDots product in one index.">
+  <section class="mx-auto max-w-6xl px-6 pt-16 pb-24">
+    <h1 class="display text-5xl md:text-7xl">Products</h1>
+    <p class="mt-4 spec-label">{products.length} items</p>
+    <div class="mt-8"><ProductIndex products={products} /></div>
+  </section>
+</SiteLayout>

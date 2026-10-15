@@ -1,0 +1,21 @@
+---
+const base = import.meta.env.BASE_URL;
+const links = [
+  { href: '/products/', label: 'Products' },
+  { href: '/changelog/', label: 'Changelog' },
+  { href: '/about/', label: 'About' },
+];
+---
+
+<div class="fixed inset-x-0 top-4 z-50 flex justify-center px-4">
+  <nav class="flex items-center gap-1 rounded-full border border-black/10 bg-[#f5f4f2]/85 py-1.5 pl-5 pr-1.5 backdrop-blur-md" aria-label="Primary">
+    <a href={`${base}`} class="mr-4 flex items-center gap-2 text-sm font-bold tracking-tight">
+      <img src={`${base}icons/jusdots.png`} alt="JusDots" class="size-6 rounded-full" />
+      JUSDOTS
+    </a>
+    {links.map((l) => (
+      <a href={`${base}${l.href.slice(1)}`} class="rounded-full px-3.5 py-1.5 text-sm text-neutral-700 transition-colors hover:bg-black/5 hover:text-black">{l.label}</a>
+    ))}
+    <a href="https://github.com/shubh72010" class="ml-2 rounded-full bg-[#141414] px-4 py-1.5 text-sm font-semibold text-white">GitHub</a>
+  </nav>
+</div>

@@ -1,0 +1,27 @@
+---
+interface Props {
+  version: string;
+  platforms: string[];
+  size: string;
+  license: string;
+  updated: Date;
+}
+
+const { version, platforms, size, license, updated } = Astro.props;
+const tiles = [
+  { k: 'Version', v: version },
+  { k: 'License', v: license },
+  { k: 'Platforms', v: platforms.join(' · ') },
+  { k: 'Size', v: size },
+  { k: 'Updated', v: updated.toISOString().slice(0, 10) },
+];
+---
+
+<dl class="grid grid-cols-2 gap-3">
+  {tiles.map((t) => (
+    <div class="chunky border hairline bg-white/60 p-4">
+      <dt class="spec-label">{t.k}</dt>
+      <dd class="mt-1 text-xl font-semibold tracking-tight">{t.v}</dd>
+    </div>
+  ))}
+</dl>

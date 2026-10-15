@@ -1,0 +1,12 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<SiteLayout title="404 — JusDots">
+  <section class="mx-auto max-w-6xl px-6 py-32">
+    <h1 class="display text-7xl">404</h1>
+    <p class="mt-4"><a href={`${base}`} class="underline">Back home →</a></p>
+  </section>
+</SiteLayout>

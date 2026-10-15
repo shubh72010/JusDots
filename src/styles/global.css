@@ -1,0 +1,111 @@
+@import 'tailwindcss';
+
+@font-face {
+  font-family: 'Geist Sans';
+  src: url('../assets/fonts/geist-sans--latest-latin-400-normal.woff2') format('woff2');
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Geist Sans';
+  src: url('../assets/fonts/geist-sans--latest-latin-500-normal.woff2') format('woff2');
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Geist Sans';
+  src: url('../assets/fonts/geist-sans--latest-latin-700-normal.woff2') format('woff2');
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Geist Sans';
+  src: url('../assets/fonts/geist-sans--latest-latin-800-normal.woff2') format('woff2');
+  font-weight: 800; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Geist Sans';
+  src: url('../assets/fonts/geist-sans--latest-latin-900-normal.woff2') format('woff2');
+  font-weight: 900; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Geist Mono';
+  src: url('../assets/fonts/geist-mono--latest-latin-400-normal.woff2') format('woff2');
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+
+@theme {
+  --color-bg: #f5f4f2;
+  --color-surface: #ebe9e6;
+  --color-ink: #141414;
+  --color-muted: #6f6c68;
+  --color-line: #ddd9d4;
+  --color-accent: #f96749;
+  --color-yolk: #ebbc6d;
+  --font-sans: 'Geist Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, monospace;
+  --font-serifit: Georgia, 'Times New Roman', serif;
+}
+
+html {
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+::selection { background: var(--color-accent); color: #fff; }
+
+.display {
+  letter-spacing: -0.045em;
+  line-height: 0.92;
+  font-weight: 900;
+}
+
+.serif-accent {
+  font-family: var(--font-serifit);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.spec-label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-muted);
+}
+
+.hairline { border-color: var(--color-line); }
+
+/* dot-matrix motif (activity grids in pins) */
+.dotgrid {
+  background-image: radial-gradient(rgba(20, 20, 20, 0.22) 1.6px, transparent 1.7px);
+  background-size: 14px 14px;
+}
+
+/* black device frame on paper (pins show black phones on light bg) */
+.phone {
+  border-radius: 2.4rem;
+  border: 1px solid #000;
+  box-shadow: 0 0 0 7px #0c0c0e, 0 24px 60px rgba(20, 20, 20, 0.28);
+  overflow: hidden;
+  background: #000;
+}
+
+.chunky { border-radius: 1.5rem; }
+
+.rich h2 { font-size: 1.35rem; font-weight: 600; letter-spacing: -0.02em; color: var(--color-ink); margin: 0 0 0.75rem; }
+.rich ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.4rem; }
+.rich li { color: var(--color-muted); padding-left: 1.1rem; position: relative; }
+.rich li::before { content: '●'; position: absolute; left: 0; font-size: 0.55rem; top: 0.42rem; color: var(--color-accent); }
+.rich p { color: var(--color-muted); }
+
+.row-glow { transition: background 0.2s ease; }
+.row-glow:hover { background: rgba(20, 20, 20, 0.035); }
+.row-glow:hover .row-arrow { transform: translateX(6px); color: var(--color-accent); }
+.row-arrow { transition: transform 0.2s ease, color 0.2s ease; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+  html { scroll-behavior: auto; }
+}
