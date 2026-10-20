@@ -1,0 +1,21 @@
+---
+interface Props {
+  items: string[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="marquee border-y hairline bg-[#141414] py-3">
+  <div class="marquee-track">
+    {[0, 1].map((copy) => (
+      <div class="flex shrink-0" aria-hidden={copy === 1 ? 'true' : undefined}>
+        {items.map((item) => (
+          <span class="spec-label mr-8 whitespace-nowrap !text-neutral-400">
+            {item} <span class="text-[#f96749]">·</span>
+          </span>
+        ))}
+      </div>
+    ))}
+  </div>
+</div>

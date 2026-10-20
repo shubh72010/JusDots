@@ -15,9 +15,18 @@ const base = import.meta.env.BASE_URL;
     <li class="border-b hairline">
       <a href={`${base}products/${p.id}/`} class="row-glow group flex items-center gap-5 py-5">
         {p.data.icon ? (
-          <img src={`${base}${p.data.icon.slice(1)}`} alt="" class="chunky size-12 shrink-0 border border-black/10 object-cover" loading="lazy" />
+          <img
+            src={`${base}${p.data.icon.slice(1)}`}
+            alt=""
+            class="chunky size-12 shrink-0 border border-black/10 object-cover"
+            loading="lazy"
+            style={`view-transition-name: product-${p.id}`}
+          />
         ) : (
-          <span class="chunky grid size-12 shrink-0 place-items-center border border-black/10 bg-black/[0.04] font-mono text-xs uppercase text-neutral-500">{p.data.kind.slice(0, 3)}</span>
+          <span
+            class="chunky grid size-12 shrink-0 place-items-center border border-black/10 bg-black/[0.04] font-mono text-xs uppercase text-neutral-500"
+            style={`view-transition-name: product-${p.id}`}
+          >{p.data.kind.slice(0, 3)}</span>
         )}
         <span class="min-w-0 flex-1">
           <span class="block truncate text-xl font-semibold tracking-tight">{p.data.title}</span>

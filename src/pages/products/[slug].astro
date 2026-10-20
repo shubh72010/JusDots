@@ -20,7 +20,14 @@ const base = import.meta.env.BASE_URL;
   <article class="px-6 pt-32 pb-32">
     <div class="mx-auto max-w-6xl">
       <div class="flex items-start gap-6">
-        {d.icon && <img src={`${base}${d.icon.slice(1)}`} alt="" class="chunky mt-3 size-20 shrink-0 border border-black/10" />}
+        {d.icon && (
+          <img
+            src={`${base}${d.icon.slice(1)}`}
+            alt=""
+            class="chunky mt-3 size-20 shrink-0 border border-black/10"
+            style={`view-transition-name: product-${product.id}`}
+          />
+        )}
         <div class="min-w-0 flex-1">
           <p class="spec-label mb-5">{d.kind} · {d.status} · ★ {stars[product.id] ?? '–'}</p>
           <h1 class="display text-4xl md:text-7xl">{d.title}</h1>
@@ -38,7 +45,7 @@ const base = import.meta.env.BASE_URL;
             <div class="flex snap-x snap-mandatory gap-6 overflow-x-auto pb-2 md:grid md:grid-cols-2 md:overflow-visible">
               {d.screenshots.slice(0, 4).map((s) => {
                 const wide = s.includes('banner') || s.includes('calc');
-                return <img src={`${base}${s.slice(1)}`} alt={`${d.title} screenshot`} loading="lazy" class:list={['object-cover', wide ? 'chunky border hairline w-full shrink-0 snap-center md:w-full' : 'phone w-60 shrink-0 snap-center md:w-full']} />;
+                return <img src={`${base}${s.slice(1)}`} alt={`${d.title} screenshot`} loading="lazy" class:list={['reveal object-cover', wide ? 'chunky border hairline w-full shrink-0 snap-center md:w-full' : 'phone w-60 shrink-0 snap-center md:w-full']} />;
               })}
             </div>
           ) : (

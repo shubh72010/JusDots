@@ -1,6 +1,7 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
 import ProductIndex from '../components/ProductIndex.astro';
+import Ticker from '../components/Ticker.astro';
 import { getCollection } from 'astro:content';
 import { totalStars } from '../data/meta';
 
@@ -47,6 +48,8 @@ const weeks = Array.from({ length: 12 }, (_, i) => {
       </div>
     </div>
   </section>
+
+  <Ticker items={['Small, sharp software', 'Android-first', 'Zero telemetry', ...products.map((p) => p.data.title)]} />
 
   <section class="border-y hairline bg-[#ebe9e6]/60 py-12" aria-label="Showcase">
     <div class="mx-auto max-w-5xl px-6">
