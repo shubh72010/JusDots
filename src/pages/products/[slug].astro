@@ -14,9 +14,6 @@ const { product } = Astro.props;
 const { Content } = await render(product);
 const d = product.data;
 const base = import.meta.env.BASE_URL;
-
-const all = (await getCollection('products')).sort((a, b) => a.data.order - b.data.order);
-const next = all[(all.findIndex((p) => p.id === product.id) + 1) % all.length] ?? product;
 ---
 
 <SiteLayout title={`${d.title} — JusDots`} description={d.description}>
@@ -61,14 +58,5 @@ const next = all[(all.findIndex((p) => p.id === product.id) + 1) % all.length] ?
       </div>
     </div>
   </article>
-  <nav class="mx-auto max-w-6xl px-6 pb-28" aria-label="Next project">
-    <a href={`${base}products/${next.id}/`} class="row-glow group flex items-center justify-between gap-6 border-y hairline py-8">
-      <span class="spec-label">Next project</span>
-      <span class="flex items-center gap-4">
-        <span class="display text-3xl md:text-5xl">{next.data.title}</span>
-        <span class="row-arrow text-2xl text-neutral-400" aria-hidden="true">→</span>
-      </span>
-    </a>
-  </nav>
   <PillDownload version={d.version} platforms={d.platforms} repo={d.repo} />
 </SiteLayout>
