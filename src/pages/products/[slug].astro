@@ -22,12 +22,12 @@ const next = all[(all.findIndex((p) => p.id === product.id) + 1) % all.length] ?
 <SiteLayout title={`${d.title} — JusDots`} description={d.description}>
   <article class="px-6 pt-32 pb-32">
     <div class="mx-auto max-w-6xl">
-      <div class="flex items-start gap-6">
+      <div class="flex flex-col gap-4 md:flex-row md:items-start md:gap-6">
         {d.icon && (
           <img
             src={`${base}${d.icon.slice(1)}`}
             alt=""
-            class="chunky mt-3 size-20 shrink-0 border border-black/10"
+            class="chunky size-16 shrink-0 border border-black/10 md:mt-3 md:size-20"
             style={`view-transition-name: product-${product.id}`}
           />
         )}
@@ -37,13 +37,13 @@ const next = all[(all.findIndex((p) => p.id === product.id) + 1) % all.length] ?
         </div>
       </div>
       <p class="serif-accent mt-8 max-w-2xl text-2xl text-neutral-600">{d.tagline}</p>
-      <div class="mt-12 grid gap-10 md:grid-cols-[1fr_1.1fr]">
-        <div>
+      <div class="mt-12 grid grid-cols-1 gap-10 md:grid-cols-[1fr_1.1fr]">
+        <div class="min-w-0">
           <h2 class="spec-label mb-3">Specs</h2>
           <SpecGrid version={d.version} platforms={d.platforms} size={d.size} license={d.license} updated={d.updated} />
           <div class="rich mt-10 max-w-none"><Content /></div>
         </div>
-        <div>
+        <div class="min-w-0">
           {d.screenshots.length > 0 ? (
             <div class="flex snap-x snap-mandatory gap-6 overflow-x-auto pb-2 md:grid md:grid-cols-2 md:overflow-visible">
               {d.screenshots.slice(0, 4).map((s) => {

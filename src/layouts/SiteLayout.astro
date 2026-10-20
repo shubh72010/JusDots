@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+import geist900 from '../assets/fonts/geist-sans--latest-latin-900-normal.woff2?url';
+import geist400 from '../assets/fonts/geist-sans-latest-latin-400-normal.woff2?url';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 
@@ -11,6 +13,7 @@ interface Props {
 const { title, description = 'JusDots — small, sharp software.' } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url).toString();
 const base = import.meta.env.BASE_URL;
+const ogImage = new URL(`${base}og.png`, Astro.site ?? Astro.url).toString();
 ---
 
 <!doctype html>
@@ -21,11 +24,23 @@ const base = import.meta.env.BASE_URL;
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    <link rel="icon" type="image/png" href={`${base}icons/jusdots.png`} />
+    <link rel="icon" type="image/png" href={`${base}icons/jusdots-64.png`} />
+    <link rel="apple-touch-icon" href={`${base}apple-touch-icon.png`} />
     <link rel="manifest" href={`${base}manifest.webmanifest`} />
+    <link rel="preload" href={geist900} as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href={geist400} as="font" type="font/woff2" crossorigin="anonymous" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="JusDots" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
     <script type="application/ld+json" set:html={JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'WebSite',
@@ -34,9 +49,12 @@ const base = import.meta.env.BASE_URL;
     })} />
   </head>
   <body class="min-h-screen">
+    <a href="#main" class="skip">Skip to content</a>
     <div class="progress" aria-hidden="true"></div>
-    <Nav />
-    <main><slot /></main>
+    <header>
+      <Nav />
+    </header>
+    <main id="main"><slot /></main>
     <Footer />
   </body>
 </html>

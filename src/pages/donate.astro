@@ -18,7 +18,7 @@ const costs = [
 <SiteLayout title="Donate — JusDots" description="Support JusDots: ad-free, account-free, offline-first Android tools.">
   <section class="mx-auto max-w-6xl px-6 pt-36 pb-14">
     <p class="spec-label mb-6">Donate · mock</p>
-    <h1 class="display-fluid">KEEP THE<br /><span class="text-[#f96749]">TOOLS</span><br />QUIET.</h1>
+    <h1 class="display-fluid">KEEP THE<br /><span class="text-accent-ink">TOOLS</span><br />QUIET.</h1>
     <p class="serif-accent mt-6 text-2xl text-neutral-700 md:text-3xl">no ads, no accounts, no tracking.</p>
     <p class="mt-8 max-w-2xl text-lg leading-relaxed">
       Every JusDots app is free, offline-first and account-free. That is funded by people who like it that way. Pick an amount below — nothing recurring, no sign-up.
@@ -32,7 +32,7 @@ const costs = [
           <div class="chunky flex flex-col border border-black/10 bg-[#f5f4f2] p-6">
             <p class="display text-6xl">${t.amount}</p>
             <p class="mt-2 font-semibold tracking-tight">{t.label}</p>
-            <p class="mt-1 flex-1 text-sm leading-relaxed text-neutral-500">{t.blurb}</p>
+            <p class="mt-1 flex-1 text-sm leading-relaxed text-neutral-600">{t.blurb}</p>
             <button
               type="button"
               data-donate={t.amount}
@@ -43,7 +43,7 @@ const costs = [
           </div>
         ))}
       </div>
-      <p class="mt-6 text-sm text-neutral-500" data-donate-status role="status">
+      <p class="mt-6 text-sm text-neutral-600" data-donate-status role="status">
         Mock checkout — these buttons do not charge anything yet.
       </p>
     </div>
@@ -54,7 +54,7 @@ const costs = [
     <ul class="rich">
       {costs.map((c) => <li>{c}</li>)}
     </ul>
-    <p class="mt-10 text-neutral-500">
+    <p class="mt-10 text-neutral-600">
       Prefer a one-off in another way, or want a specific app funded? Write to <a href="https://github.com/shubh72010" class="underline decoration-[#f96749] underline-offset-4 hover:text-black">GitHub</a>.
     </p>
   </section>

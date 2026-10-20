@@ -1,1 +1,15 @@
-{"name":"JusDots","short_name":"JusDots","start_url":"/","display":"standalone","background_color":"#f2f1ed","theme_color":"#111111","icons":[]}
+{
+  "name": "JusDots",
+  "short_name": "JusDots",
+  "description": "Small, sharp software — Android-first apps that do one job well.",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "background_color": "#f5f4f2",
+  "theme_color": "#141414",
+  "icons": [
+    { "src": "icons/jusdots.png", "sizes": "400x400", "type": "image/png", "purpose": "any" },
+    { "src": "icons/jusdots.png", "sizes": "400x400", "type": "image/png", "purpose": "maskable" },
+    { "src": "apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}

@@ -38,6 +38,7 @@
   --color-muted: #6f6c68;
   --color-line: #ddd9d4;
   --color-accent: #f96749;
+  --color-accent-ink: #d9432c;
   --color-yolk: #ebbc6d;
   --font-sans: 'Geist Sans', ui-sans-serif, system-ui, sans-serif;
   --font-mono: 'Geist Mono', ui-monospace, monospace;
@@ -51,6 +52,22 @@ html {
   -webkit-font-smoothing: antialiased;
   scroll-behavior: smooth;
 }
+
+/* keyboard bypass, hidden until focused */
+.skip {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 70;
+  transform: translateY(-200%);
+  border-radius: 999px;
+  background: var(--color-ink);
+  padding: 0.6rem 1.1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #fff;
+}
+.skip:focus-visible { transform: none; }
 
 ::selection { background: var(--color-accent); color: #fff; }
 
@@ -66,7 +83,7 @@ html {
   letter-spacing: -0.045em;
   line-height: 0.92;
   font-weight: 900;
-  font-size: clamp(3rem, 14.5vw, 9rem);
+  font-size: clamp(2.6rem, 14.5vw, 9rem);
 }
 
 .serif-accent {
