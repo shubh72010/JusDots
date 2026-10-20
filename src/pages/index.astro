@@ -22,9 +22,13 @@ const weeks = Array.from({ length: 12 }, (_, i) => {
   <section class="px-6 pt-36 pb-14">
     <div class="mx-auto max-w-6xl">
       <p class="spec-label mb-6">★ {totalStars} stars · {products.length} projects · Android-first</p>
-      <h1 class="display-fluid">SMALL,<br />SHARP<br /><span class="text-[#f96749]">SOFTWARE.</span></h1>
-      <p class="serif-accent mt-6 text-2xl text-neutral-700 md:text-3xl">quiet tools that do one job well.</p>
-      <div class="mt-8 flex flex-wrap items-center gap-3">
+      <h1 class="display-fluid">
+        <span class="rise inline-block">SMALL,</span><br />
+        <span class="rise inline-block" style="--d: 90ms">SHARP</span><br />
+        <span class="rise inline-block text-[#f96749]" style="--d: 180ms">SOFTWARE.</span>
+      </h1>
+      <p class="serif-accent rise mt-6 text-2xl text-neutral-700 md:text-3xl" style="--d: 300ms">quiet tools that do one job well.</p>
+      <div class="rise mt-8 flex flex-wrap items-center gap-3" style="--d: 380ms">
         <a href={`${base}products/`} class="rounded-full bg-[#141414] px-7 py-3 text-sm font-semibold text-white">Browse products</a>
         <a href="https://github.com/shubh72010" class="rounded-full border border-black/15 px-7 py-3 text-sm transition-colors hover:bg-black/5">GitHub →</a>
       </div>

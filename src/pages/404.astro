@@ -5,8 +5,11 @@ const base = import.meta.env.BASE_URL;
 ---
 
 <SiteLayout title="404 — JusDots">
-  <section class="mx-auto max-w-6xl px-6 py-32">
-    <h1 class="display text-7xl">404</h1>
-    <p class="mt-4"><a href={`${base}`} class="underline">Back home →</a></p>
+  <section class="mx-auto max-w-6xl px-6 pt-32 pb-24">
+    <p class="spec-label mb-6">Error · nothing at this address</p>
+    <h1 class="display-fluid">404<span class="text-[#f96749]">.</span></h1>
+    <p class="serif-accent mt-6 text-2xl text-neutral-700">this one shipped, then vanished.</p>
+    <a href={`${base}`} class="mt-10 inline-flex rounded-full bg-[#141414] px-7 py-3 text-sm font-semibold text-white">Back to index</a>
+    <div class="dotgrid mt-20 h-28 rounded-3xl border hairline opacity-70" aria-hidden="true"></div>
   </section>
 </SiteLayout>
