@@ -1,0 +1,70 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+
+const tiers = [
+  { amount: 3, label: 'One coffee', blurb: 'Keeps the build machines warm for a week.' },
+  { amount: 10, label: 'A good week', blurb: 'Covers a month of Play Store and signing overhead.' },
+  { amount: 25, label: 'Keep it quiet', blurb: 'Funds a device to test on, so releases break less.' },
+];
+
+const costs = [
+  'Developer accounts and Play Store fees for every app.',
+  'Icon design, screenshots and the fonts on this site.',
+  'Test devices, so bugs get fixed before you see them.',
+  'Hosting and domain — the whole bill for this page.',
+];
+---
+
+<SiteLayout title="Donate — JusDots" description="Support JusDots: ad-free, account-free, offline-first Android tools.">
+  <section class="mx-auto max-w-6xl px-6 pt-36 pb-14">
+    <p class="spec-label mb-6">Donate · mock</p>
+    <h1 class="display-fluid">KEEP THE<br /><span class="text-[#f96749]">TOOLS</span><br />QUIET.</h1>
+    <p class="serif-accent mt-6 text-2xl text-neutral-700 md:text-3xl">no ads, no accounts, no tracking.</p>
+    <p class="mt-8 max-w-2xl text-lg leading-relaxed">
+      Every JusDots app is free, offline-first and account-free. That is funded by people who like it that way. Pick an amount below — nothing recurring, no sign-up.
+    </p>
+  </section>
+
+  <section class="border-y hairline bg-[#ebe9e6]/60 py-12" aria-label="Donation amounts">
+    <div class="mx-auto max-w-5xl px-6">
+      <div class="grid gap-4 md:grid-cols-3">
+        {tiers.map((t) => (
+          <div class="chunky flex flex-col border border-black/10 bg-[#f5f4f2] p-6">
+            <p class="display text-6xl">${t.amount}</p>
+            <p class="mt-2 font-semibold tracking-tight">{t.label}</p>
+            <p class="mt-1 flex-1 text-sm leading-relaxed text-neutral-500">{t.blurb}</p>
+            <button
+              type="button"
+              data-donate={t.amount}
+              class="mt-6 rounded-full bg-[#141414] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#f96749]"
+            >
+              Donate ${t.amount}
+            </button>
+          </div>
+        ))}
+      </div>
+      <p class="mt-6 text-sm text-neutral-500" data-donate-status role="status">
+        Mock checkout — these buttons do not charge anything yet.
+      </p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-6 py-16">
+    <h2 class="spec-label mb-4">Where it goes</h2>
+    <ul class="rich">
+      {costs.map((c) => <li>{c}</li>)}
+    </ul>
+    <p class="mt-10 text-neutral-500">
+      Prefer a one-off in another way, or want a specific app funded? Write to <a href="https://github.com/shubh72010" class="underline decoration-[#f96749] underline-offset-4 hover:text-black">GitHub</a>.
+    </p>
+  </section>
+</SiteLayout>
+
+<script>
+  const status = document.querySelector<HTMLElement>('[data-donate-status]');
+  document.querySelectorAll<HTMLButtonElement>('[data-donate]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      if (status) status.textContent = `Mock: $${btn.dataset.donate} selected — no payment provider is connected yet.`;
+    });
+  });
+</script>

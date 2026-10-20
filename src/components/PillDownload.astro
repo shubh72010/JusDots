@@ -1,0 +1,27 @@
+---
+interface Props {
+  version: string;
+  platforms: string[];
+  repo?: string;
+}
+
+const { version, platforms, repo } = Astro.props;
+const primary = platforms[0] ?? 'Android';
+const multi = platforms.length > 1;
+---
+
+<div class="fixed bottom-4 left-1/2 z-10 w-max max-w-[calc(100vw-2rem)] -translate-x-1/2">
+  <div class="flex items-center gap-2.5 rounded-full border border-white/10 bg-[#141414] py-2 pl-3.5 pr-1.5 text-white shadow-xl">
+    <span class="flex shrink-0 gap-1.5" aria-hidden="true">
+      {platforms.map((p) => (
+        <span class="inline-block size-2 rounded-full bg-[#f96749]" title={p}></span>
+      ))}
+    </span>
+    <span class="whitespace-nowrap font-mono text-[11px]">v{version} · {multi ? `${platforms.length} platforms` : primary}</span>
+    {repo ? (
+      <a href={repo} class="rounded-full bg-[#f96749] px-4 py-1.5 text-sm font-semibold text-white">Download</a>
+    ) : (
+      <span class="rounded-full bg-white/15 px-4 py-1.5 text-sm">Coming soon</span>
+    )}
+  </div>
+</div>

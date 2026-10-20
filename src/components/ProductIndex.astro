@@ -1,0 +1,35 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { stars } from '../data/meta';
+
+interface Props {
+  products: CollectionEntry<'products'>[];
+}
+
+const { products } = Astro.props;
+const base = import.meta.env.BASE_URL;
+---
+
+<ul class="border-t hairline">
+  {products.map((p) => (
+    <li class="border-b hairline">
+      <a href={`${base}products/${p.id}/`} class="row-glow group flex items-center gap-5 py-5">
+        {p.data.icon ? (
+          <img src={`${base}${p.data.icon.slice(1)}`} alt="" class="chunky size-12 shrink-0 border border-black/10 object-cover" loading="lazy" />
+        ) : (
+          <span class="chunky grid size-12 shrink-0 place-items-center border border-black/10 bg-black/[0.04] font-mono text-xs uppercase text-neutral-500">{p.data.kind.slice(0, 3)}</span>
+        )}
+        <span class="min-w-0 flex-1">
+          <span class="block truncate text-xl font-semibold tracking-tight">{p.data.title}</span>
+          <span class="mt-0.5 block truncate text-sm text-neutral-500">{p.data.tagline}</span>
+        </span>
+        <span class="hidden shrink-0 items-center gap-4 sm:flex">
+          <span class="rounded-full border border-black/10 px-2.5 py-1 font-mono text-[11px] uppercase text-neutral-500">{p.data.kind}</span>
+          <span class="spec-label">★ {stars[p.id] ?? '–'}</span>
+          <span class="spec-label">v{p.data.version}</span>
+          <span aria-hidden="true" class="row-arrow text-neutral-400">→</span>
+        </span>
+      </a>
+    </li>
+  ))}
+</ul>

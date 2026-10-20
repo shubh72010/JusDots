@@ -1,0 +1,65 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import ProductIndex from '../components/ProductIndex.astro';
+import { getCollection } from 'astro:content';
+import { totalStars } from '../data/meta';
+
+const base = import.meta.env.BASE_URL;
+const products = (await getCollection('products')).sort((a, b) => a.data.order - b.data.order);
+
+// release-activity strip: 12 weeks back from newest release, dot lit on release weeks
+const dates = products.map((p) => +p.data.updated).sort((a, b) => b - a);
+const newest = dates[0] ?? Date.now();
+const WEEK = 7 * 864e5;
+const weeks = Array.from({ length: 12 }, (_, i) => {
+  const start = newest - (11 - i) * WEEK;
+  return dates.some((d) => d > start - WEEK && d <= start + WEEK * 0 + 0 || (d <= start && d > start - WEEK));
+});
+---
+
+<SiteLayout title="JusDots — small, sharp software" description="JusDots builds small, sharp apps: JusPlayer, JusBrowse, JusNotes, JusCalc and more.">
+  <section class="px-6 pt-36 pb-14">
+    <div class="mx-auto max-w-6xl">
+      <p class="spec-label mb-6">★ {totalStars} stars · {products.length} projects · Android-first</p>
+      <h1 class="display-fluid">SMALL,<br />SHARP<br /><span class="text-[#f96749]">SOFTWARE.</span></h1>
+      <p class="serif-accent mt-6 text-2xl text-neutral-700 md:text-3xl">quiet tools that do one job well.</p>
+      <div class="mt-8 flex flex-wrap items-center gap-3">
+        <a href={`${base}products/`} class="rounded-full bg-[#141414] px-7 py-3 text-sm font-semibold text-white">Browse products</a>
+        <a href="https://github.com/shubh72010" class="rounded-full border border-black/15 px-7 py-3 text-sm transition-colors hover:bg-black/5">GitHub →</a>
+      </div>
+      <div class="mt-12 flex items-end gap-8">
+        <div>
+          <p class="display text-6xl md:text-7xl">{String(totalStars).padStart(2, '0')}</p>
+          <p class="spec-label mt-1">GitHub stars</p>
+        </div>
+        <div>
+          <p class="display text-6xl md:text-7xl">{String(products.length).padStart(2, '0')}</p>
+          <p class="spec-label mt-1">Pinned projects</p>
+        </div>
+        <div class="mb-2 hidden sm:block" aria-label="Release activity, last 12 weeks">
+          <div class="flex gap-1.5">
+            {weeks.map((lit) => (
+              <span class:list={['size-3 rounded-full', lit ? 'bg-[#f96749]' : 'bg-black/10']}></span>
+            ))}
+          </div>
+          <p class="spec-label mt-2">Shipped · 12 wks</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-y hairline bg-[#ebe9e6]/60 py-12" aria-label="Showcase">
+    <div class="mx-auto max-w-5xl px-6">
+      <div class="flex snap-x snap-mandatory gap-6 overflow-x-auto pb-2 md:grid md:grid-cols-3 md:items-end md:overflow-visible">
+        <img src={`${base}screenshots/jusnotes/shot-1.png`} alt="JusNotes editor" loading="lazy" class="phone w-60 shrink-0 snap-center object-cover md:w-full" />
+        <img src={`${base}screenshots/jusplayer/new-2.jpg`} alt="JusPlayer home" loading="lazy" class="phone w-60 shrink-0 snap-center object-cover md:w-full md:-translate-y-4" />
+        <img src={`${base}screenshots/jusnotes/shot-3.png`} alt="JusNotes preview" loading="lazy" class="phone w-60 shrink-0 snap-center object-cover md:w-full" />
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-6 py-16" aria-label="Products">
+    <h2 class="spec-label mb-4">Index — {products.length} items</h2>
+    <ProductIndex products={products} />
+  </section>
+</SiteLayout>
