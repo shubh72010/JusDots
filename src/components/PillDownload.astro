@@ -1,13 +1,22 @@
 ---
+import type { Release } from '../data/releases';
+
 interface Props {
   version: string;
   platforms: string[];
   repo?: string;
+  /** newest GitHub release: shown version and direct APK download */
+  latest?: Pick<Release, 'tag' | 'apkUrl'>;
+  /** in-site changelog for the version click */
+  changelogHref?: string;
 }
 
-const { version, platforms, repo } = Astro.props;
+const { version, platforms, repo, latest, changelogHref } = Astro.props;
 const primary = platforms[0] ?? 'Android';
 const multi = platforms.length > 1;
+const shown = latest?.tag ?? `v${version}`;
+// direct APK asset (same URL GitHub's release page uses, so downloads still count); falls back to the releases page
+const download = latest?.apkUrl ?? repo;
 ---
 
 <div class="fixed bottom-4 left-1/2 z-10 w-max max-w-[calc(100vw-2rem)] -translate-x-1/2">
@@ -17,9 +26,13 @@ const multi = platforms.length > 1;
         <span class="inline-block size-2 rounded-full bg-[#f96749]" title={p}></span>
       ))}
     </span>
-    <span class="whitespace-nowrap font-mono text-[11px]">v{version} · {multi ? `${platforms.length} platforms` : primary}</span>
-    {repo ? (
-      <a href={repo} class="rounded-full bg-[#f96749] px-4 py-1.5 text-sm font-semibold text-white">Download</a>
+    <a
+      href={changelogHref}
+      class="whitespace-nowrap font-mono text-[11px]"
+      title="Full changelog"
+    >{shown} · {multi ? `${platforms.length} platforms` : primary}</a>
+    {download ? (
+      <a href={download} class="rounded-full bg-[#f96749] px-4 py-1.5 text-sm font-semibold text-white">Download</a>
     ) : (
       <span class="rounded-full bg-white/15 px-4 py-1.5 text-sm">Coming soon</span>
     )}

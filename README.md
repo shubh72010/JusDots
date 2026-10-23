@@ -15,4 +15,6 @@ pnpm build     # dist/
 
 Add a product: drop `src/content/products/<slug>.md` with the schema in `src/content.config.ts`.
 
+Each product gets a changelog at `/products/<slug>/changelog/`, built from the GitHub Releases API using that product's `repo:` URL. Set `GITHUB_TOKEN` for the higher API rate limit (the workflows already do); if a fetch fails the page links to the repo's releases instead of failing the build. `deploy.yml` also runs nightly so new releases appear without a push.
+
 Brand assets live in `public/`: `og.png` (1200×630 social card), `apple-touch-icon.png`, `icons/`.

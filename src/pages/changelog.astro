@@ -7,13 +7,13 @@ const products = (await getCollection('products')).sort((a, b) => +b.data.update
 ---
 
 <SiteLayout title="Changelog — JusDots" description="Latest releases across JusDots products.">
-  <section class="mx-auto max-w-6xl px-6 pt-16 pb-24">
+  <section class="mx-auto max-w-6xl px-6 pt-32 pb-24">
     <h1 class="display text-5xl md:text-7xl">Changelog</h1>
     <ul class="mt-8 border-t hairline">
       {products.map((p) => (
         <li class="flex items-baseline justify-between gap-6 border-b hairline py-4">
-          <a href={`${base}products/${p.id}/`} class="font-semibold hover:underline">{p.data.title}</a>
-          <span class="spec-label">v{p.data.version} · {p.data.updated.toISOString().slice(0, 10)}</span>
+          <a href={`${base}products/${p.id}/changelog/`} class="font-semibold hover:underline">{p.data.title}</a>
+          <a href={`${base}products/${p.id}/changelog/`} class="spec-label hover:text-black">v{p.data.version} · {p.data.updated.toISOString().slice(0, 10)} →</a>
         </li>
       ))}
     </ul>

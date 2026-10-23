@@ -5,11 +5,12 @@ interface Props {
   size: string;
   license: string;
   updated: Date;
+  changelogHref?: string;
 }
 
-const { version, platforms, size, license, updated } = Astro.props;
+const { version, platforms, size, license, updated, changelogHref } = Astro.props;
 const tiles = [
-  { k: 'Version', v: version },
+  { k: 'Version', v: version, href: changelogHref },
   { k: 'License', v: license },
   { k: 'Platforms', v: platforms.join(' · ') },
   { k: 'Size', v: size },
@@ -19,9 +20,15 @@ const tiles = [
 
 <dl class="grid grid-cols-1 gap-3 min-[380px]:grid-cols-2">
   {tiles.map((t) => (
-    <div class="chunky reveal border hairline bg-white/60 p-4">
+    <div class="chunky row-glow reveal border hairline bg-white/60 p-4">
       <dt class="spec-label">{t.k}</dt>
-      <dd class="mt-1 text-xl font-semibold tracking-tight">{t.v}</dd>
+      <dd class="mt-1 text-xl font-semibold tracking-tight">
+        {t.href ? (
+          <a href={t.href} class="hover:underline" title="Full changelog">{t.v}</a>
+        ) : (
+          t.v
+        )}
+      </dd>
     </div>
   ))}
 </dl>

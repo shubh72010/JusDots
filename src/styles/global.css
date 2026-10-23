@@ -125,6 +125,15 @@ html {
 .rich li { color: var(--color-muted); padding-left: 1.1rem; position: relative; }
 .rich li::before { content: '●'; position: absolute; left: 0; font-size: 0.55rem; top: 0.42rem; color: var(--color-accent); }
 .rich p { color: var(--color-muted); }
+.rich { overflow-wrap: anywhere; } /* commit hashes and URLs in release notes must not widen the page */
+.rich h3 { font-size: 1.05rem; font-weight: 600; letter-spacing: -0.01em; color: var(--color-ink); margin: 1.1rem 0 0.4rem; }
+.rich a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+.rich code { font-family: var(--font-mono); font-size: 0.85em; background: rgba(20, 20, 20, 0.06); padding: 0.1em 0.32em; border-radius: 0.3rem; }
+.rich pre { overflow-x: auto; background: rgba(20, 20, 20, 0.06); padding: 0.8rem 1rem; border-radius: 0.6rem; }
+.rich hr { border: 0; border-top: 1px solid var(--color-line); margin: 1.2rem 0; }
+.rich img { max-width: 100%; height: auto; }
+.rich table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin: 0.6rem 0; }
+.rich th, .rich td { border: 1px solid var(--color-line); padding: 0.35rem 0.5rem; text-align: left; }
 
 .row-glow { transition: background 0.2s ease; }
 .row-glow:hover { background: rgba(20, 20, 20, 0.035); }

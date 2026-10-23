@@ -1,0 +1,55 @@
+---
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+import { getCollection } from 'astro:content';
+import { getReleases } from '../../../data/releases';
+
+export async function getStaticPaths() {
+  const products = await getCollection('products');
+  return products.map((p) => ({ params: { slug: p.id }, props: { product: p } }));
+}
+
+const { product } = Astro.props;
+const d = product.data;
+const releases = await getReleases(d.repo);
+const base = import.meta.env.BASE_URL;
+---
+
+<SiteLayout title={`${d.title} changelog — JusDots`} description={`Release notes for ${d.title}, pulled from GitHub.`}>
+  <section class="mx-auto max-w-3xl px-6 pt-32 pb-24">
+    <a href={`${base}products/${product.id}/`} class="spec-label hover:text-black">← {d.title}</a>
+    <h1 class="display mt-6 text-5xl md:text-6xl">Changelog</h1>
+    <p class="serif-accent mt-4 text-xl text-neutral-600">every release, straight from GitHub.</p>
+
+    {releases.length === 0 ? (
+      d.repo && (
+        <p class="mt-12 border-t hairline pt-6 text-neutral-600">
+          Release notes are on GitHub:{' '}
+          <a href={`${d.repo}/releases`} class="underline hover:text-black">{d.repo.replace('https://github.com/', '')} →</a>
+        </p>
+      )
+    ) : (
+      <ol class="mt-12 border-t hairline">
+        {releases.map((r) => (
+          <li class="border-b hairline py-8">
+            <div class="flex flex-wrap items-baseline justify-between gap-2">
+              <h2 class="text-xl font-semibold tracking-tight">
+                <a href={r.url} class="hover:underline">{r.tag}</a>
+                {r.name !== r.tag && <span class="ml-2 text-base font-normal text-neutral-500">{r.name}</span>}
+              </h2>
+              <p class="spec-label">
+                {r.date.toISOString().slice(0, 10)}{r.prerelease && ' · pre-release'}
+              </p>
+            </div>
+            <div class="rich mt-4" set:html={r.html} />
+          </li>
+        ))}
+      </ol>
+    )}
+
+    {releases.length > 0 && (
+      <a href={`${d.repo}/releases`} class="mt-10 inline-block rounded-full border border-black/15 px-6 py-2.5 text-sm hover:bg-black/5">
+        All releases on GitHub →
+      </a>
+    )}
+  </section>
+</SiteLayout>
